@@ -1,6 +1,5 @@
 import type { SVGProps } from 'react'
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
+import { Popover } from '@headlessui/react'
 import {
   AnnotationIcon,
   ChatAlt2Icon,
@@ -8,16 +7,16 @@ import {
   DocumentReportIcon,
   HeartIcon,
   InboxIcon,
-  MenuIcon,
   PencilAltIcon,
   QuestionMarkCircleIcon,
   ReplyIcon,
-  SparklesIcon,
   TrashIcon,
   UsersIcon,
-  XIcon,
 } from '@heroicons/react/outline'
-import { ChevronDownIcon } from '@heroicons/react/solid'
+import { json, LoaderFunction } from '@remix-run/cloudflare'
+
+import countries from '../lib/countries.json'
+import { useLoaderData } from '@remix-run/react'
 
 const solutions = [
   {
@@ -177,7 +176,30 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
+export const loader: LoaderFunction = ({ request }) => {
+  let cf = (request as any).cf as IncomingRequestCfProperties
+
+  if (!cf) {
+    return json({ undefined })
+  }
+
+  let country = countries.find((c) => c.cca2 === cf.country)
+
+  let formattedLocation = ''
+  if (cf.city) formattedLocation += cf.city + ', '
+  if (cf.region) formattedLocation += cf.region + ', '
+  formattedLocation += cf.country
+
+  console.log('country ', country)
+
+  return json({
+    formattedLocation,
+    country,
+  })
+}
+
 export default function Index() {
+  let { formattedLocation, country } = useLoaderData()
   return (
     <div>
       <div className="bg-white">
@@ -432,6 +454,33 @@ export default function Index() {
               </div>
             </div>
           </div>
+
+          {country && (
+            <div>
+              <p>
+                Location: {formattedLocation} {country.flag}
+              </p>
+
+              <p>Currencies</p>
+              <ul>
+                {Object.entries(country.currencies).map(
+                  ([abbr, currency]: any) => (
+                    <li key={abbr} data-testid="currency">
+                      {abbr}: {currency.name} ({currency.symbol})
+                    </li>
+                  )
+                )}
+              </ul>
+              <p>Languages</p>
+              <ul>
+                {Object.values(country.languages).map((name: any) => (
+                  <li key={name} data-testid="language">
+                    {name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Logo Cloud */}
           {/*  <div className="bg-gray-100">
