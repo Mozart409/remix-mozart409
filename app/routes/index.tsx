@@ -13,7 +13,8 @@ import {
   TrashIcon,
   UsersIcon,
 } from '@heroicons/react/outline'
-import { json, LoaderFunction } from '@remix-run/cloudflare'
+import type { LoaderFunction, LinksFunction } from '@remix-run/cloudflare'
+import { json } from '@remix-run/cloudflare'
 
 import countries from '../lib/countries.json'
 import { useLoaderData } from '@remix-run/react'
@@ -176,11 +177,16 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
+export let links: LinksFunction = () => {
+  return [{ rel: 'canonical', href: 'https://mozart409.com' }]
+}
+
 export const loader: LoaderFunction = ({ request }) => {
   let cf = (request as any).cf as IncomingRequestCfProperties
 
   if (!cf) {
-    return json({ undefined })
+    console.error('❌ No Cloudflare headers found')
+    return json({ formattedLocation: null, country: null })
   }
 
   let country = countries.find((c) => c.cca2 === cf.country)
@@ -456,29 +462,31 @@ export default function Index() {
           </div>
 
           {country && (
-            <div>
-              <p>
-                Location: {formattedLocation} {country.flag}
-              </p>
+            <div className="bg-gray-100">
+              <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <p className="text-center text-sm font-semibold uppercase text-gray-500 tracking-wide">
+                  Location: {formattedLocation} {country.flag}
+                </p>
 
-              <p>Currencies</p>
-              <ul>
-                {Object.entries(country.currencies).map(
-                  ([abbr, currency]: any) => (
-                    <li key={abbr} data-testid="currency">
-                      {abbr}: {currency.name} ({currency.symbol})
+                <p>Currencies</p>
+                <ul>
+                  {Object.entries(country.currencies).map(
+                    ([abbr, currency]: any) => (
+                      <li key={abbr} data-testid="currency">
+                        {abbr}: {currency.name} ({currency.symbol})
+                      </li>
+                    )
+                  )}
+                </ul>
+                <p>Languages</p>
+                <ul>
+                  {Object.values(country.languages).map((name: any) => (
+                    <li key={name} data-testid="language">
+                      {name}
                     </li>
-                  )
-                )}
-              </ul>
-              <p>Languages</p>
-              <ul>
-                {Object.values(country.languages).map((name: any) => (
-                  <li key={name} data-testid="language">
-                    {name}
-                  </li>
-                ))}
-              </ul>
+                  ))}
+                </ul>
+              </div>
             </div>
           )}
 

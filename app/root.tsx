@@ -13,6 +13,7 @@ export const meta: MetaFunction = () => ({
   charset: 'utf-8',
   title: 'Mozart409',
   viewport: 'width=device-width,initial-scale=1',
+  description: 'Mozart409 Website',
 })
 
 export function links() {
