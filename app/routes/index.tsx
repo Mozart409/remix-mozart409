@@ -1,101 +1,11 @@
 import type { SVGProps } from 'react'
 import { Popover } from '@headlessui/react'
-import {
-  AnnotationIcon,
-  ChatAlt2Icon,
-  ChatAltIcon,
-  DocumentReportIcon,
-  HeartIcon,
-  InboxIcon,
-  PencilAltIcon,
-  QuestionMarkCircleIcon,
-  ReplyIcon,
-  TrashIcon,
-  UsersIcon,
-} from '@heroicons/react/outline'
 import type { LoaderFunction, LinksFunction } from '@remix-run/cloudflare'
 import { json } from '@remix-run/cloudflare'
 
 import countries from '../lib/countries.json'
 import { useLoaderData } from '@remix-run/react'
 
-const solutions = [
-  {
-    name: 'Inbox',
-    description:
-      'Get a better understanding of where your traffic is coming from.',
-    href: '#',
-    icon: InboxIcon,
-  },
-  {
-    name: 'Messaging',
-    description: 'Speak directly to your customers in a more meaningful way.',
-    href: '#',
-    icon: AnnotationIcon,
-  },
-  {
-    name: 'Live Chat',
-    description: "Your customers' data will be safe and secure.",
-    href: '#',
-    icon: ChatAlt2Icon,
-  },
-  {
-    name: 'Knowledge Base',
-    description: "Connect with third-party tools that you're already using.",
-    href: '#',
-    icon: QuestionMarkCircleIcon,
-  },
-]
-const features = [
-  {
-    name: 'Unlimited Inboxes',
-    description:
-      'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-    icon: InboxIcon,
-  },
-  {
-    name: 'Manage Team Members',
-    description:
-      'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-    icon: UsersIcon,
-  },
-  {
-    name: 'Spam Report',
-    description:
-      'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-    icon: TrashIcon,
-  },
-  {
-    name: 'Compose in Markdown',
-    description:
-      'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-    icon: PencilAltIcon,
-  },
-  {
-    name: 'Team Reporting',
-    description:
-      'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-    icon: DocumentReportIcon,
-  },
-  {
-    name: 'Saved Replies',
-    description:
-      'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-    icon: ReplyIcon,
-  },
-  {
-    name: 'Email Commenting',
-    description:
-      'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-    icon: ChatAltIcon,
-  },
-  {
-    name: 'Connect with Customers',
-    description:
-      'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-    icon: HeartIcon,
-  },
-]
 const metrics = [
   {
     id: 1,
@@ -182,19 +92,15 @@ export let links: LinksFunction = () => {
 }
 
 export const loader: LoaderFunction = ({ request }) => {
-  let cf = (request as any).cf as IncomingRequestCfProperties
+  console.log(request.headers)
+  const lang = request.headers.get('cf-ipcountry')
 
-  if (!cf) {
-    console.error('❌ No Cloudflare headers found')
-    return json({ formattedLocation: null, country: null })
-  }
-
-  let country = countries.find((c) => c.cca2 === cf.country)
+  let country = countries.find((c) => c.cca2 === lang)
 
   let formattedLocation = ''
-  if (cf.city) formattedLocation += cf.city + ', '
+  /* if (cf.city) formattedLocation += cf.city + ', '
   if (cf.region) formattedLocation += cf.region + ', '
-  formattedLocation += cf.country
+  formattedLocation += cf.country */
 
   console.log('country ', country)
 
@@ -319,98 +225,6 @@ export default function Index() {
                 </a> */}
               </div>
             </div>
-
-            {/*  <Transition
-              as={Fragment}
-              enter="duration-200 ease-out"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="duration-100 ease-in"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
-            >
-              <Popover.Panel
-                focus
-                className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
-              >
-                <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-                  <div className="pt-5 pb-6 px-5">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <img
-                          className="h-8 w-auto"
-                          src="https://tailwindui.com/img/logos/workflow-mark-pink-600-to-yellow-500.svg"
-                          alt="Workflow"
-                        />
-                      </div>
-                      <div className="-mr-2">
-                        <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500">
-                          <span className="sr-only">Close menu</span>
-                          <XIcon className="h-6 w-6" aria-hidden="true" />
-                        </Popover.Button>
-                      </div>
-                    </div>
-                    <div className="mt-6">
-                      <nav className="grid grid-cols-1 gap-7">
-                        {solutions.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
-                          >
-                            <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-pink-600 to-yellow-500 text-white">
-                              <item.icon
-                                className="h-6 w-6"
-                                aria-hidden="true"
-                              />
-                            </div>
-                            <div className="ml-4 text-base font-medium text-gray-900">
-                              {item.name}
-                            </div>
-                          </a>
-                        ))}
-                      </nav>
-                    </div>
-                  </div>
-                  <div className="py-6 px-5">
-                    <div className="grid grid-cols-2 gap-4">
-                      <a
-                        href="#"
-                        className="text-base font-medium text-gray-900 hover:text-gray-700"
-                      >
-                        Pricing
-                      </a>
-                      <a
-                        href="#"
-                        className="text-base font-medium text-gray-900 hover:text-gray-700"
-                      >
-                        Partners
-                      </a>
-                      <a
-                        href="#"
-                        className="text-base font-medium text-gray-900 hover:text-gray-700"
-                      >
-                        Company
-                      </a>
-                    </div>
-                    <div className="mt-6">
-                      <a
-                        href="#"
-                        className="w-full flex items-center justify-center bg-gradient-to-r from-pink-600 to-yellow-500 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-pink-700 hover:to-yellow-600"
-                      >
-                        Sign up
-                      </a>
-                      <p className="mt-6 text-center text-base font-medium text-gray-500">
-                        Existing customer?
-                        <a href="#" className="text-gray-900">
-                          Sign in
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Popover.Panel>
-            </Transition> */}
           </Popover>
         </header>
 
@@ -463,29 +277,36 @@ export default function Index() {
 
           {country && (
             <div className="bg-gray-100">
-              <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-                <p className="text-center text-sm font-semibold uppercase text-gray-500 tracking-wide">
-                  Location: {formattedLocation} {country.flag}
-                </p>
-
-                <p>Currencies</p>
-                <ul>
-                  {Object.entries(country.currencies).map(
-                    ([abbr, currency]: any) => (
-                      <li key={abbr} data-testid="currency">
-                        {abbr}: {currency.name} ({currency.symbol})
-                      </li>
-                    )
-                  )}
-                </ul>
-                <p>Languages</p>
-                <ul>
-                  {Object.values(country.languages).map((name: any) => (
-                    <li key={name} data-testid="language">
-                      {name}
-                    </li>
-                  ))}
-                </ul>
+              <div className="max-w-5xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <div className="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
+                  <div className="px-4 py-5 sm:px-6">
+                    {/* Content goes here */}
+                    {/* We use less vertical padding on card headers on desktop than on body sections */}
+                    You are visiting this website from {country.flag}
+                  </div>
+                  {/*  <div className="px-4 py-5 sm:p-6">
+                    <p>Location: {country.flag}</p>
+                   
+                    <p>Currencies</p>
+                    <ul>
+                      {Object.entries(country.currencies).map(
+                        ([abbr, currency]: any) => (
+                          <li key={abbr} className="list list-disc">
+                            {abbr}: {currency.name} ({currency.symbol})
+                          </li>
+                        )
+                      )}
+                    </ul>
+                    <p>Languages</p>
+                    <ul>
+                      {Object.values(country.languages).map((name: any) => (
+                        <li key={name} className="list list-disc">
+                          {name}
+                        </li>
+                      ))}
+                    </ul>
+                  </div> */}
+                </div>
               </div>
             </div>
           )}
