@@ -4,7 +4,7 @@ import type { LoaderFunction, LinksFunction } from '@remix-run/cloudflare'
 import { json } from '@remix-run/cloudflare'
 
 import countries from '../lib/countries.json'
-import { useLoaderData } from '@remix-run/react'
+import { Link, useLoaderData } from '@remix-run/react'
 
 const metrics = [
   {
@@ -612,6 +612,22 @@ export default function Index() {
                   </a>
                 ))}
               </div>
+
+              <Link
+                to="/datenschutz"
+                className="text-gray-400 hover:text-gray-500"
+              >
+                <span>Datenschutz</span>
+                {/*   <item.icon className="h-6 w-6" aria-hidden="true" /> */}
+              </Link>
+              <Link
+                to="/impressum"
+                className="text-gray-400 hover:text-gray-500"
+              >
+                <span>Impressum</span>
+                {/*  <item.icon className="h-6 w-6" aria-hidden="true" /> */}
+              </Link>
+
               <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
                 &copy; {new Date().getFullYear()} Amadeus Mader. All rights
                 reserved.
