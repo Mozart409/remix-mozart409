@@ -1,6 +1,6 @@
-import type { EntryContext } from "@remix-run/cloudflare";
-import { RemixServer } from "@remix-run/react";
-import { renderToString } from "react-dom/server";
+import type { EntryContext } from '@remix-run/cloudflare'
+import { RemixServer } from '@remix-run/react'
+import { renderToString } from 'react-dom/server'
 
 export default function handleRequest(
   request: Request,
@@ -10,12 +10,22 @@ export default function handleRequest(
 ) {
   let markup = renderToString(
     <RemixServer context={remixContext} url={request.url} />
-  );
+  )
 
-  responseHeaders.set("Content-Type", "text/html");
+  responseHeaders.set('Content-Type', 'text/html')
 
-  return new Response("<!DOCTYPE html>" + markup, {
+  /* if (process.env.NODE_ENV === 'development') {
+  } */
+
+  if (process.env.NODE_ENV === 'production') {
+    responseHeaders.set(
+      'Content-Security-Policy',
+      "default-src 'self'; img-src 'self' https://imagedelivery.net; style-src 'self';"
+    )
+  }
+
+  return new Response('<!DOCTYPE html>' + markup, {
     status: responseStatusCode,
     headers: responseHeaders,
-  });
+  })
 }
