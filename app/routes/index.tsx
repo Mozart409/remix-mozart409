@@ -176,8 +176,17 @@ export default function Index() {
                     I am a full-stack developer with a passion for building
                     websites and serverless applications. I deploy mostly to AWS
                     via the Cloud Development Kit (CDK), and I have experience
-                    with React, Node, and Go. This page is build with Remix and
-                    Tailwind and is deployed to Cloudflare Workers.
+                    with React, Node, and Go. My favorite CMS is{' '}
+                    <a
+                      target="_blank"
+                      href="https://strapi.io"
+                      rel="noreferrer"
+                      className="underline"
+                    >
+                      Strapi
+                    </a>
+                    . This page is build with Remix and Tailwind and is deployed
+                    to Cloudflare Workers.
                   </p>
                   <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
                     <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
