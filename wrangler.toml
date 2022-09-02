@@ -1,6 +1,5 @@
 name = "remix-mozart409"
 compatibility_date = "2022-05-14"
-account_id = ""
 route = { pattern = "mozart409.com", zone_id = "ad3552ed28be9ee91e3a6b69f58ac014" }
 
 workers_dev = true
