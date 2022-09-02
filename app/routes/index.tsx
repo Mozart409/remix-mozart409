@@ -11,51 +11,51 @@ const metrics = [
     id: 1,
     stat: '8K+',
     emphasis: 'Companies',
-    rest: 'use laoreet amet lacus nibh integer quis.',
+    rest: 'use laoreet amet lacus nibh integer quis.'
   },
   {
     id: 2,
     stat: '25K+',
     emphasis: 'Countries around the globe',
-    rest: 'lacus nibh integer quis.',
+    rest: 'lacus nibh integer quis.'
   },
   {
     id: 3,
     stat: '98%',
     emphasis: 'Customer satisfaction',
-    rest: 'laoreet amet lacus nibh integer quis.',
+    rest: 'laoreet amet lacus nibh integer quis.'
   },
   {
     id: 4,
     stat: '12M+',
     emphasis: 'Issues resolved',
-    rest: 'lacus nibh integer quis.',
-  },
+    rest: 'lacus nibh integer quis.'
+  }
 ]
 const footerNavigation = {
   solutions: [
     { name: 'Marketing', href: '#' },
     { name: 'Analytics', href: '#' },
     { name: 'Commerce', href: '#' },
-    { name: 'Insights', href: '#' },
+    { name: 'Insights', href: '#' }
   ],
   support: [
     { name: 'Pricing', href: '#' },
     { name: 'Documentation', href: '#' },
     { name: 'Guides', href: '#' },
-    { name: 'API Status', href: '#' },
+    { name: 'API Status', href: '#' }
   ],
   company: [
     { name: 'About', href: '#' },
     { name: 'Blog', href: '#' },
     { name: 'Jobs', href: '#' },
     { name: 'Press', href: '#' },
-    { name: 'Partners', href: '#' },
+    { name: 'Partners', href: '#' }
   ],
   legal: [
     { name: 'Claim', href: '#' },
     { name: 'Privacy', href: '#' },
-    { name: 'Terms', href: '#' },
+    { name: 'Terms', href: '#' }
   ],
   social: [
     {
@@ -65,7 +65,7 @@ const footerNavigation = {
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
         </svg>
-      ),
+      )
     },
     {
       name: 'GitHub',
@@ -78,9 +78,9 @@ const footerNavigation = {
             clipRule="evenodd"
           />
         </svg>
-      ),
-    },
-  ],
+      )
+    }
+  ]
 }
 
 function classNames(...classes: string[]) {
@@ -97,7 +97,7 @@ export const loader: LoaderFunction = ({ request }) => {
   let country = countries.find((c) => c.cca2 === lang)
 
   return json({
-    country,
+    country
   })
 }
 
@@ -160,7 +160,7 @@ export default function Index() {
                 <div className="absolute inset-0">
                   <img
                     className="h-full w-full object-cover"
-                    src="https://imagedelivery.net/Xf-xzwkqsT6N08RkH1GoLQ/ff6e369d-23c1-48b4-48b9-4f4bbf47c400/public"
+                    src="https://images.unsplash.com/photo-1561056731-62ffd605f586?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80"
                     width={'1366'}
                     height={'768'}
                     alt="Munich Background"
