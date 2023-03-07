@@ -1,3 +1,5 @@
+import { Footer } from '~/ui/footer'
+
 export default function Datenschutz() {
   return (
     <div className="prose prose-lg mx-auto prose-headings:underline prose-a:text-primary-600 md:prose-lg lg:prose-2xl">
@@ -2094,6 +2096,8 @@ export default function Datenschutz() {
         dieser die personenbezogenen Daten unserer Websitebesucher nur nach
         unseren Weisungen und unter Einhaltung der DSGVO verarbeitet.
       </p>
+
+      <Footer />
     </div>
   )
 }

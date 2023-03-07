@@ -1,3 +1,5 @@
+import { Footer } from '~/ui/footer'
+
 export default function Impressum() {
   return (
     <div>
@@ -142,6 +144,7 @@ export default function Impressum() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
