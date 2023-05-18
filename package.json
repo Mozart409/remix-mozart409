@@ -3,6 +3,7 @@
   "private": true,
   "sideEffects": false,
   "main": "build/index.js",
+  "version": "o.1.0",
   "scripts": {
     "deploy": "npm run build && wrangler publish",
     "build": "npm run build:css && remix build",
