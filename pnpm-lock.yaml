@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   "@cloudflare/kv-asset-handler":
-    specifier: ^0.1.3
-    version: 0.1.3
+    specifier: ^0.3.0
+    version: 0.3.0
   "@headlessui/react":
     specifier: ^1.7.17
     version: 1.7.17(react-dom@18.2.0)(react@18.2.0)
@@ -43,7 +43,7 @@ dependencies:
     version: 18.2.0(react@18.2.0)
   remix-image:
     specifier: ^1.4.0
-    version: 1.4.0(@cloudflare/kv-asset-handler@0.1.3)(@next-boost/hybrid-disk-cache@0.3.0)(react-dom@18.2.0)(react@18.2.0)(remix@1.19.3)
+    version: 1.4.0(@cloudflare/kv-asset-handler@0.3.0)(@next-boost/hybrid-disk-cache@0.3.0)(react-dom@18.2.0)(react@18.2.0)(remix@1.19.3)
   remix-image-wasm:
     specifier: ^0.1.3
     version: 0.1.3(remix-image@1.4.0)(remix@1.19.3)
@@ -68,8 +68,8 @@ devDependencies:
     specifier: ^18.2.23
     version: 18.2.23
   "@types/react-dom":
-    specifier: ^18.2.7
-    version: 18.2.7
+    specifier: ^18.2.8
+    version: 18.2.8
   autoprefixer:
     specifier: ^10.4.16
     version: 10.4.16(postcss@8.4.30)
@@ -679,6 +679,15 @@ packages:
     dependencies:
       mime: 3.0.0
     dev: true
+
+  /@cloudflare/kv-asset-handler@0.3.0:
+    resolution:
+      {
+        integrity: sha512-9CB/MKf/wdvbfkUdfrj+OkEwZ5b7rws0eogJ4293h+7b6KX5toPwym+VQKmILafNB9YiehqY0DlNrDcDhdWHSQ==,
+      }
+    dependencies:
+      mime: 3.0.0
+    dev: false
 
   /@cloudflare/workerd-darwin-64@1.20230922.0:
     resolution:
@@ -2314,10 +2323,10 @@ packages:
       }
     dev: true
 
-  /@types/react-dom@18.2.7:
+  /@types/react-dom@18.2.8:
     resolution:
       {
-        integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==,
+        integrity: sha512-bAIvO5lN/U8sPGvs1Xm61rlRHHaq5rp5N3kp9C+NJ/Q41P8iqjkXSu0+/qu8POsjH9pNWb0OYabFez7taP7omw==,
       }
     dependencies:
       "@types/react": 18.2.23
@@ -7069,7 +7078,6 @@ packages:
       }
     engines: { node: ">=10.0.0" }
     hasBin: true
-    dev: true
 
   /mimic-fn@2.1.0:
     resolution:
@@ -8703,10 +8711,10 @@ packages:
       "@jsquash/resize": 1.0.1
       "@jsquash/webp": 1.1.3
       remix: 1.19.3
-      remix-image: 1.4.0(@cloudflare/kv-asset-handler@0.1.3)(@next-boost/hybrid-disk-cache@0.3.0)(react-dom@18.2.0)(react@18.2.0)(remix@1.19.3)
+      remix-image: 1.4.0(@cloudflare/kv-asset-handler@0.3.0)(@next-boost/hybrid-disk-cache@0.3.0)(react-dom@18.2.0)(react@18.2.0)(remix@1.19.3)
     dev: false
 
-  /remix-image@1.4.0(@cloudflare/kv-asset-handler@0.1.3)(@next-boost/hybrid-disk-cache@0.3.0)(react-dom@18.2.0)(react@18.2.0)(remix@1.19.3):
+  /remix-image@1.4.0(@cloudflare/kv-asset-handler@0.3.0)(@next-boost/hybrid-disk-cache@0.3.0)(react-dom@18.2.0)(react@18.2.0)(remix@1.19.3):
     resolution:
       {
         integrity: sha512-eYWEacZDmt8tF4DsXPKZSRW9V0I/ypTKni1kN273bex7hYzNxR/pEQp396WME2EK+Nnh6s9EdyaQeXe90T5FEQ==,
@@ -8718,7 +8726,7 @@ packages:
       react-dom: ">=16.8.0"
       remix: ^1.0.0
     dependencies:
-      "@cloudflare/kv-asset-handler": 0.1.3
+      "@cloudflare/kv-asset-handler": 0.3.0
       "@next-boost/hybrid-disk-cache": 0.3.0
       clsx: 1.2.1
       is-svg: 4.4.0

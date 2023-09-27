@@ -1,6 +1,10 @@
 import type { SVGProps } from "react";
 import { Popover } from "@headlessui/react";
-import type { LoaderFunction,LoaderFunctionArgs, LinksFunction } from "@remix-run/cloudflare";
+import type {
+  LoaderFunction,
+  LoaderFunctionArgs,
+  LinksFunction,
+} from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 
 import countries from "../lib/countries.json";
@@ -52,10 +56,7 @@ export let links: LinksFunction = () => {
   });
 }; */
 
-export const loader = async ({
-  params,
-  request,
-}: LoaderFunctionArgs) => {
+export const loader = async ({ params, request }: LoaderFunctionArgs) => {
   const lang = request.headers.get("cf-ipcountry");
 
   let country = countries.find((c) => c.cca2 === lang);
@@ -63,10 +64,10 @@ export const loader = async ({
   return json({
     country,
   });
-}
+};
 
 export default function Index() {
-const {country} = useLoaderData<typeof loader>();
+  const { country } = useLoaderData<typeof loader>();
 
   return (
     <div>
@@ -210,7 +211,7 @@ const {country} = useLoaderData<typeof loader>();
                 </div>
               </div>
             </div>
-          ): null}
+          ) : null}
 
           {/* Logo Cloud */}
           {/*  <div className="bg-gray-100">
