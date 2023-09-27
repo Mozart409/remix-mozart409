@@ -6,25 +6,25 @@ import {
   Scripts,
   ScrollRestoration,
   isRouteErrorResponse,
-  useRouteError
-} from '@remix-run/react'
-import { XCircleIcon } from '@heroicons/react/20/solid'
-import styles from './styles/app.css'
-import type { LinksFunction } from '@remix-run/cloudflare'
-import { cssBundleHref } from '@remix-run/css-bundle'
+  useRouteError,
+} from "@remix-run/react";
+import { XCircleIcon } from "@heroicons/react/20/solid";
+import styles from "./styles/app.css";
+import type { LinksFunction } from "@remix-run/cloudflare";
+import { cssBundleHref } from "@remix-run/css-bundle";
 
 export function meta() {
   return [
-    { title: 'Mozart409' },
-    { description: 'Mozart409 Website' },
-    { keywords: 'Mozart409, Amadeus Mader, Mozart409, Mozart409 Website' }
-  ]
+    { title: "Mozart409" },
+    { description: "Mozart409 Website" },
+    { keywords: "Mozart409, Amadeus Mader, Mozart409, Mozart409 Website" },
+  ];
 }
 
 export const links: LinksFunction = () => [
-  { rel: 'stylesheet', href: styles },
-  ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : [])
-]
+  { rel: "stylesheet", href: styles },
+  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+];
 
 export default function App() {
   return (
@@ -42,11 +42,11 @@ export default function App() {
         <LiveReload />
       </body>
     </html>
-  )
+  );
 }
 
 export function ErrorBoundary() {
-  const error = useRouteError()
+  const error = useRouteError();
 
   if (error instanceof Error) {
     return (
@@ -67,7 +67,7 @@ export function ErrorBoundary() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   if (!isRouteErrorResponse(error)) {
@@ -89,7 +89,7 @@ export function ErrorBoundary() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   if (error.status === 404) {
@@ -111,7 +111,7 @@ export function ErrorBoundary() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -132,5 +132,5 @@ export function ErrorBoundary() {
         </div>
       </div>
     </div>
-  )
+  );
 }
