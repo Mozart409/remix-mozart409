@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 import { Popover } from "@headlessui/react";
-import type { LoaderFunction, LinksFunction } from "@remix-run/cloudflare";
+import type { LoaderFunction,LoaderFunctionArgs, LinksFunction } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 
 import countries from "../lib/countries.json";
@@ -42,7 +42,7 @@ export let links: LinksFunction = () => {
   return [{ rel: "canonical", href: "https://mozart409.com" }];
 };
 
-export const loader: LoaderFunction = ({ request }) => {
+/* export const loader: LoaderFunction = ({ request }) => {
   const lang = request.headers.get("cf-ipcountry");
 
   let country = countries.find((c) => c.cca2 === lang);
@@ -50,10 +50,24 @@ export const loader: LoaderFunction = ({ request }) => {
   return json({
     country,
   });
-};
+}; */
+
+export const loader = async ({
+  params,
+  request,
+}: LoaderFunctionArgs) => {
+  const lang = request.headers.get("cf-ipcountry");
+
+  let country = countries.find((c) => c.cca2 === lang);
+
+  return json({
+    country,
+  });
+}
 
 export default function Index() {
-  const { country } = useLoaderData();
+const {country} = useLoaderData<typeof loader>();
+
   return (
     <div>
       <div className="bg-white">
@@ -162,7 +176,7 @@ export default function Index() {
             </div>
           </div>
 
-          {country && (
+          {country ? (
             <div className="bg-gray-100">
               <div className="py-16 px-4 mx-auto max-w-5xl sm:px-6 lg:px-8">
                 <div className="overflow-hidden bg-white rounded-lg divide-y divide-gray-200 shadow">
@@ -196,7 +210,7 @@ export default function Index() {
                 </div>
               </div>
             </div>
-          )}
+          ): null}
 
           {/* Logo Cloud */}
           {/*  <div className="bg-gray-100">
