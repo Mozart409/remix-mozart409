@@ -1,50 +1,55 @@
-import type { SVGProps } from "react";
-import { Popover } from "@headlessui/react";
+import { Popover } from '@headlessui/react'
 import type {
   LoaderFunction,
   LoaderFunctionArgs,
-  LinksFunction,
-} from "@remix-run/cloudflare";
-import { json } from "@remix-run/cloudflare";
+  LinksFunction
+} from '@remix-run/cloudflare'
+import { json } from '@remix-run/cloudflare'
 
-import countries from "../lib/countries.json";
-import { Link, useLoaderData } from "@remix-run/react";
+import countries from '../lib/countries.json'
+import {
+  Link,
+  isRouteErrorResponse,
+  useLoaderData,
+  useRouteError
+} from '@remix-run/react'
 
-import { Footer } from "~/ui/footer";
+import { Footer } from '~/ui/footer'
+import { XCircleIcon } from '@heroicons/react/20/solid'
 const metrics = [
   {
     id: 1,
-    stat: "8K+",
-    emphasis: "Companies",
-    rest: "use laoreet amet lacus nibh integer quis.",
+    stat: '8K+',
+    emphasis: 'Companies',
+    rest: 'use laoreet amet lacus nibh integer quis.'
   },
   {
     id: 2,
-    stat: "25K+",
-    emphasis: "Countries around the globe",
-    rest: "lacus nibh integer quis.",
+    stat: '25K+',
+    emphasis: 'Countries around the globe',
+    rest: 'lacus nibh integer quis.'
   },
   {
     id: 3,
-    stat: "98%",
-    emphasis: "Customer satisfaction",
-    rest: "laoreet amet lacus nibh integer quis.",
+    stat: '98%',
+    emphasis: 'Customer satisfaction',
+    rest: 'laoreet amet lacus nibh integer quis.'
   },
   {
     id: 4,
-    stat: "12M+",
-    emphasis: "Issues resolved",
-    rest: "lacus nibh integer quis.",
-  },
-];
+    stat: '12M+',
+    emphasis: 'Issues resolved',
+    rest: 'lacus nibh integer quis.'
+  }
+]
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ')
 }
 
 export let links: LinksFunction = () => {
-  return [{ rel: "canonical", href: "https://mozart409.com" }];
-};
+  return [{ rel: 'canonical', href: 'https://mozart409.com' }]
+}
 
 /* export const loader: LoaderFunction = ({ request }) => {
   const lang = request.headers.get("cf-ipcountry");
@@ -57,17 +62,17 @@ export let links: LinksFunction = () => {
 }; */
 
 export const loader = async ({ params, request }: LoaderFunctionArgs) => {
-  const lang = request.headers.get("cf-ipcountry");
+  const lang = request.headers.get('cf-ipcountry')
 
-  let country = countries.find((c) => c.cca2 === lang);
+  let country = countries.find((c) => c.cca2 === lang)
 
   return json({
-    country,
-  });
-};
+    country
+  })
+}
 
 export default function Index() {
-  const { country } = useLoaderData<typeof loader>();
+  const { country } = useLoaderData<typeof loader>()
 
   return (
     <div>
@@ -127,8 +132,8 @@ export default function Index() {
                   <img
                     className="object-cover w-full h-full"
                     src="https://images.unsplash.com/photo-1561056731-62ffd605f586?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80"
-                    width={"1366"}
-                    height={"768"}
+                    width={'1366'}
+                    height={'768'}
                     alt="Munich Background"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-pink-800 to-yellow-600 mix-blend-multiply" />
@@ -144,7 +149,7 @@ export default function Index() {
                     My primary deployment platform is AWS, and I leverage the
                     Cloud Development Kit (CDK) for this purpose. My technical
                     expertise encompasses React, Node, and Go, and I hold a
-                    particular affinity for the{" "}
+                    particular affinity for the{' '}
                     <a
                       target="_blank"
                       href="https://strapi.io"
@@ -152,7 +157,7 @@ export default function Index() {
                       className="underline"
                     >
                       Strapi
-                    </a>{" "}
+                    </a>{' '}
                     CMS. Notably, this page is constructed with Remix and
                     Tailwind and is seamlessly deployed to Cloudflare Workers.
                   </p>
@@ -466,5 +471,95 @@ export default function Index() {
         <Footer />
       </div>
     </div>
-  );
+  )
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError()
+
+  if (error instanceof Error) {
+    return (
+      <div className="p-4 bg-red-50 rounded-md">
+        <div className="flex">
+          <div className="flex-shrink-0">
+            <XCircleIcon className="w-5 h-5 text-red-400" aria-hidden="true" />
+          </div>
+          <div className="ml-3">
+            <h3 className="text-sm font-medium text-red-800">
+              An unexpected error occurred:
+            </h3>
+            <div className="mt-2 text-sm text-red-700">
+              <ul role="list" className="pl-5 space-y-1 list-disc">
+                <li>{error.message}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (!isRouteErrorResponse(error)) {
+    return (
+      <div className="p-4 bg-red-50 rounded-md">
+        <div className="flex">
+          <div className="flex-shrink-0">
+            <XCircleIcon className="w-5 h-5 text-red-400" aria-hidden="true" />
+          </div>
+          <div className="ml-3">
+            <h3 className="text-sm font-medium text-red-800">
+              An unexpected error occurred:
+            </h3>
+            <div className="mt-2 text-sm text-red-700">
+              <ul role="list" className="pl-5 space-y-1 list-disc">
+                <li>Unknown Error</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (error.status === 404) {
+    return (
+      <div className="p-4 bg-red-50 rounded-md">
+        <div className="flex">
+          <div className="flex-shrink-0">
+            <XCircleIcon className="w-5 h-5 text-red-400" aria-hidden="true" />
+          </div>
+          <div className="ml-3">
+            <h3 className="text-sm font-medium text-red-800">
+              An unexpected error occurred:
+            </h3>
+            <div className="mt-2 text-sm text-red-700">
+              <ul role="list" className="pl-5 space-y-1 list-disc">
+                <li>404 nothing found</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="p-4 bg-red-50 rounded-md">
+      <div className="flex">
+        <div className="flex-shrink-0">
+          <XCircleIcon className="w-5 h-5 text-red-400" aria-hidden="true" />
+        </div>
+        <div className="ml-3">
+          <h3 className="text-sm font-medium text-red-800">
+            An unexpected error occurred:
+          </h3>
+          <div className="mt-2 text-sm text-red-700">
+            <ul role="list" className="pl-5 space-y-1 list-disc">
+              <li>{error.statusText}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
