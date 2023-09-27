@@ -1,15 +1,16 @@
 name = "remix-mozart409"
-compatibility_date = "2022-05-14"
-route = { pattern = "mozart409.com", zone_id = "ad3552ed28be9ee91e3a6b69f58ac014" }
 
-workers_dev = true
 account_id = "4ec8eba2586278dfd08eabdfad46630c"
+route = {pattern = "mozart409.com", zone_id = "ad3552ed28be9ee91e3a6b69f58ac014"}
 
 main = "./build/index.js"
+workers_dev = true
+
+compatibility_date = "2022-05-14"
+compatibility_flags = ["streams_enable_constructors"]
 
 [site]
 bucket = "./public"
 
 [build]
 command = "npm run build"
-

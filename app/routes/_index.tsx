@@ -1,69 +1,83 @@
-import type { SVGProps } from 'react'
-import { Popover } from '@headlessui/react'
-import type { LoaderFunction, LinksFunction } from '@remix-run/cloudflare'
-import { json } from '@remix-run/cloudflare'
+import type { SVGProps } from "react";
+import { Popover } from "@headlessui/react";
+import type { LoaderFunction,LoaderFunctionArgs, LinksFunction } from "@remix-run/cloudflare";
+import { json } from "@remix-run/cloudflare";
 
-import countries from '../lib/countries.json'
-import { Link, useLoaderData } from '@remix-run/react'
+import countries from "../lib/countries.json";
+import { Link, useLoaderData } from "@remix-run/react";
 
-import { Footer } from '~/ui/footer'
+import { Footer } from "~/ui/footer";
 const metrics = [
   {
     id: 1,
-    stat: '8K+',
-    emphasis: 'Companies',
-    rest: 'use laoreet amet lacus nibh integer quis.'
+    stat: "8K+",
+    emphasis: "Companies",
+    rest: "use laoreet amet lacus nibh integer quis.",
   },
   {
     id: 2,
-    stat: '25K+',
-    emphasis: 'Countries around the globe',
-    rest: 'lacus nibh integer quis.'
+    stat: "25K+",
+    emphasis: "Countries around the globe",
+    rest: "lacus nibh integer quis.",
   },
   {
     id: 3,
-    stat: '98%',
-    emphasis: 'Customer satisfaction',
-    rest: 'laoreet amet lacus nibh integer quis.'
+    stat: "98%",
+    emphasis: "Customer satisfaction",
+    rest: "laoreet amet lacus nibh integer quis.",
   },
   {
     id: 4,
-    stat: '12M+',
-    emphasis: 'Issues resolved',
-    rest: 'lacus nibh integer quis.'
-  }
-]
+    stat: "12M+",
+    emphasis: "Issues resolved",
+    rest: "lacus nibh integer quis.",
+  },
+];
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export let links: LinksFunction = () => {
-  return [{ rel: 'canonical', href: 'https://mozart409.com' }]
-}
+  return [{ rel: "canonical", href: "https://mozart409.com" }];
+};
 
-export const loader: LoaderFunction = ({ request }) => {
-  const lang = request.headers.get('cf-ipcountry')
+/* export const loader: LoaderFunction = ({ request }) => {
+  const lang = request.headers.get("cf-ipcountry");
 
-  let country = countries.find((c) => c.cca2 === lang)
+  let country = countries.find((c) => c.cca2 === lang);
 
   return json({
-    country
-  })
+    country,
+  });
+}; */
+
+export const loader = async ({
+  params,
+  request,
+}: LoaderFunctionArgs) => {
+  const lang = request.headers.get("cf-ipcountry");
+
+  let country = countries.find((c) => c.cca2 === lang);
+
+  return json({
+    country,
+  });
 }
 
 export default function Index() {
-  const { country } = useLoaderData()
+const {country} = useLoaderData<typeof loader>();
+
   return (
     <div>
       <div className="bg-white">
         <header>
           <Popover className="relative bg-white">
-            <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
-              <div className="flex justify-start lg:w-0 lg:flex-1">
+            <div className="flex justify-between items-center py-6 px-4 mx-auto max-w-7xl sm:px-6 md:justify-start md:space-x-10 lg:px-8">
+              <div className="flex justify-start lg:flex-1 lg:w-0">
                 <span className="sr-only">Mozart409</span>
                 {/*  <img
-                  className="h-8 w-auto sm:h-10"
+                  className="w-auto h-8 sm:h-10"
                   src="/logo.svg"
                   alt="Mozart409 Logo"
                   width={32}
@@ -71,7 +85,7 @@ export default function Index() {
                 /> */}
                 <div>
                   <svg
-                    className="h-8 w-auto sm:h-10"
+                    className="w-auto h-8 sm:h-10"
                     xmlns="http://www.w3.org/2000/svg"
                     width="2000"
                     height="2000"
@@ -87,13 +101,13 @@ export default function Index() {
                 </div>
               </div>
 
-              <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                <span className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+              <div className="hidden justify-end items-center md:flex md:flex-1 lg:w-0">
+                <span className="text-base font-medium text-gray-500 whitespace-nowrap hover:text-gray-900">
                   Amadeus Mader
                 </span>
                 {/*  <a
                   href="#"
-                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-pink-600 to-yellow-500 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-pink-700 hover:to-yellow-600"
+                  className="inline-flex justify-center items-center py-2 px-4 ml-8 text-base font-medium text-white whitespace-nowrap bg-gradient-to-r from-pink-600 to-yellow-500 rounded-md border border-transparent shadow-sm hover:from-pink-700 hover:to-yellow-600 bg-origin-border"
                 >
                   Sign up
                 </a> */}
@@ -106,30 +120,30 @@ export default function Index() {
           {/* Hero section */}
           <div className="relative">
             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100" />
-            <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-              <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
+            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+              <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
                 <div className="absolute inset-0">
                   <img
-                    className="h-full w-full object-cover"
+                    className="object-cover w-full h-full"
                     src="https://images.unsplash.com/photo-1561056731-62ffd605f586?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80"
-                    width={'1366'}
-                    height={'768'}
+                    width={"1366"}
+                    height={"768"}
                     alt="Munich Background"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-pink-800 to-yellow-600 mix-blend-multiply" />
                 </div>
-                <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
-                  <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                <div className="relative py-16 px-4 sm:py-24 sm:px-6 lg:py-32 lg:px-8">
+                  <h1 className="text-4xl font-extrabold tracking-tight text-center sm:text-5xl lg:text-6xl">
                     <span className="block text-white">Welcome to my</span>
                     <span className="block text-yellow-200">website</span>
                   </h1>
-                  <p className="mt-6 max-w-lg mx-auto text-center text-xl text-yellow-200 sm:max-w-3xl">
+                  <p className="mx-auto mt-6 max-w-lg text-xl text-center text-yellow-200 sm:max-w-3xl">
                     As a full-stack developer, I possess a deep-seated passion
                     for crafting dynamic websites and serverless applications.
                     My primary deployment platform is AWS, and I leverage the
                     Cloud Development Kit (CDK) for this purpose. My technical
                     expertise encompasses React, Node, and Go, and I hold a
-                    particular affinity for the{' '}
+                    particular affinity for the{" "}
                     <a
                       target="_blank"
                       href="https://strapi.io"
@@ -137,21 +151,21 @@ export default function Index() {
                       className="underline"
                     >
                       Strapi
-                    </a>{' '}
+                    </a>{" "}
                     CMS. Notably, this page is constructed with Remix and
                     Tailwind and is seamlessly deployed to Cloudflare Workers.
                   </p>
-                  <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-                    <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
+                  <div className="mx-auto mt-10 max-w-sm sm:flex sm:justify-center sm:max-w-none">
+                    <div className="space-y-4 sm:inline-grid sm:grid-cols-2 sm:gap-5 sm:mx-auto sm:space-y-0">
                       <a
                         href="https://twitter.com/marc_van_sax"
-                        className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-yellow-600 bg-white hover:bg-yellow-50 sm:px-8"
+                        className="flex justify-center items-center py-3 px-4 text-base font-medium text-yellow-600 bg-white rounded-md border border-transparent shadow-sm sm:px-8 hover:bg-yellow-50"
                       >
                         <span>Twitter</span>
                       </a>
                       <a
                         href="https://github.com/mozart409"
-                        className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-yellow-500 bg-opacity-60 hover:bg-opacity-70 sm:px-8"
+                        className="flex justify-center items-center py-3 px-4 text-base font-medium text-white bg-yellow-500 bg-opacity-60 rounded-md border border-transparent shadow-sm sm:px-8 hover:bg-opacity-70"
                       >
                         <span>GitHub</span>
                       </a>
@@ -162,23 +176,23 @@ export default function Index() {
             </div>
           </div>
 
-          {country && (
+          {country ? (
             <div className="bg-gray-100">
-              <div className="max-w-5xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-                <div className="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
-                  <div className="px-4 py-5 sm:px-6">
+              <div className="py-16 px-4 mx-auto max-w-5xl sm:px-6 lg:px-8">
+                <div className="overflow-hidden bg-white rounded-lg divide-y divide-gray-200 shadow">
+                  <div className="py-5 px-4 sm:px-6">
                     {/* Content goes here */}
                     {/* We use less vertical padding on card headers on desktop than on body sections */}
                     You are visiting this website from {country.flag}
                   </div>
-                  {/*  <div className="px-4 py-5 sm:p-6">
+                  {/*  <div className="py-5 px-4 sm:p-6">
                     <p>Location: {country.flag}</p>
                    
                     <p>Currencies</p>
                     <ul>
                       {Object.entries(country.currencies).map(
                         ([abbr, currency]: any) => (
-                          <li key={abbr} className="list list-disc">
+                          <li key={abbr} className="list-disc list">
                             {abbr}: {currency.name} ({currency.symbol})
                           </li>
                         )
@@ -187,7 +201,7 @@ export default function Index() {
                     <p>Languages</p>
                     <ul>
                       {Object.values(country.languages).map((name: any) => (
-                        <li key={name} className="list list-disc">
+                        <li key={name} className="list-disc list">
                           {name}
                         </li>
                       ))}
@@ -196,44 +210,44 @@ export default function Index() {
                 </div>
               </div>
             </div>
-          )}
+          ): null}
 
           {/* Logo Cloud */}
           {/*  <div className="bg-gray-100">
-            <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-              <p className="text-center text-sm font-semibold uppercase text-gray-500 tracking-wide">
+            <div className="py-16 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+              <p className="text-sm font-semibold tracking-wide text-center text-gray-500 uppercase">
                 Trusted by over 5 very average small businesses
               </p>
-              <div className="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
-                <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+              <div className="grid grid-cols-2 gap-8 mt-6 md:grid-cols-6 lg:grid-cols-5">
+                <div className="flex col-span-1 justify-center md:col-span-2 lg:col-span-1">
                   <img
                     className="h-12"
                     src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg"
                     alt="Tuple"
                   />
                 </div>
-                <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+                <div className="flex col-span-1 justify-center md:col-span-2 lg:col-span-1">
                   <img
                     className="h-12"
                     src="https://tailwindui.com/img/logos/mirage-logo-gray-400.svg"
                     alt="Mirage"
                   />
                 </div>
-                <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+                <div className="flex col-span-1 justify-center md:col-span-2 lg:col-span-1">
                   <img
                     className="h-12"
                     src="https://tailwindui.com/img/logos/statickit-logo-gray-400.svg"
                     alt="StaticKit"
                   />
                 </div>
-                <div className="col-span-1 flex justify-center md:col-span-2 md:col-start-2 lg:col-span-1">
+                <div className="flex col-span-1 justify-center md:col-span-2 md:col-start-2 lg:col-span-1">
                   <img
                     className="h-12"
                     src="https://tailwindui.com/img/logos/transistor-logo-gray-400.svg"
                     alt="Transistor"
                   />
                 </div>
-                <div className="col-span-2 flex justify-center md:col-span-2 md:col-start-4 lg:col-span-1">
+                <div className="flex col-span-2 justify-center md:col-span-2 md:col-start-4 lg:col-span-1">
                   <img
                     className="h-12"
                     src="https://tailwindui.com/img/logos/workcation-logo-gray-400.svg"
@@ -245,19 +259,19 @@ export default function Index() {
           </div> */}
 
           {/* Alternating Feature Sections */}
-          {/*  <div className="relative pt-16 pb-32 overflow-hidden">
+          {/*  <div className="overflow-hidden relative pt-16 pb-32">
             <div
               aria-hidden="true"
               className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-gray-100"
             />
             <div className="relative">
-              <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
-                <div className="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
+              <div className="lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24 lg:px-8 lg:mx-auto lg:max-w-7xl">
+                <div className="px-4 mx-auto max-w-xl sm:px-6 lg:py-16 lg:px-0 lg:mx-0 lg:max-w-none">
                   <div>
                     <div>
-                      <span className="h-12 w-12 rounded-md flex items-center justify-center bg-gradient-to-r from-pink-600 to-yellow-500">
+                      <span className="flex justify-center items-center w-12 h-12 bg-gradient-to-r from-pink-600 to-yellow-500 rounded-md">
                         <InboxIcon
-                          className="h-6 w-6 text-white"
+                          className="w-6 h-6 text-white"
                           aria-hidden="true"
                         />
                       </span>
@@ -276,14 +290,14 @@ export default function Index() {
                       <div className="mt-6">
                         <a
                           href="#"
-                          className="inline-flex bg-gradient-to-r from-pink-600 to-yellow-500 bg-origin-border px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-pink-700 hover:to-yellow-600"
+                          className="inline-flex py-2 px-4 text-base font-medium text-white bg-gradient-to-r from-pink-600 to-yellow-500 rounded-md border border-transparent shadow-sm hover:from-pink-700 hover:to-yellow-600 bg-origin-border"
                         >
                           Get started
                         </a>
                       </div>
                     </div>
                   </div>
-                  <div className="mt-8 border-t border-gray-200 pt-6">
+                  <div className="pt-6 mt-8 border-t border-gray-200">
                     <blockquote>
                       <div>
                         <p className="text-base text-gray-500">
@@ -296,7 +310,7 @@ export default function Index() {
                         <div className="flex items-center space-x-3">
                           <div className="flex-shrink-0">
                             <img
-                              className="h-6 w-6 rounded-full"
+                              className="w-6 h-6 rounded-full"
                               src="https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
                               alt=""
                             />
@@ -310,9 +324,9 @@ export default function Index() {
                   </div>
                 </div>
                 <div className="mt-12 sm:mt-16 lg:mt-0">
-                  <div className="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
+                  <div className="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:relative lg:px-0 lg:m-0 lg:h-full">
                     <img
-                      className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
+                      className="w-full rounded-xl ring-1 ring-black ring-opacity-5 shadow-xl lg:absolute lg:left-0 lg:w-auto lg:max-w-none lg:h-full"
                       src="https://tailwindui.com/img/component-images/inbox-app-screenshot-1.jpg"
                       alt="Inbox user interface"
                     />
@@ -321,13 +335,13 @@ export default function Index() {
               </div>
             </div>
             <div className="mt-24">
-              <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
-                <div className="px-4 max-w-xl mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2">
+              <div className="lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24 lg:px-8 lg:mx-auto lg:max-w-7xl">
+                <div className="px-4 mx-auto max-w-xl sm:px-6 lg:col-start-2 lg:py-32 lg:px-0 lg:mx-0 lg:max-w-none">
                   <div>
                     <div>
-                      <span className="h-12 w-12 rounded-md flex items-center justify-center bg-gradient-to-r from-pink-600 to-yellow-500">
+                      <span className="flex justify-center items-center w-12 h-12 bg-gradient-to-r from-pink-600 to-yellow-500 rounded-md">
                         <SparklesIcon
-                          className="h-6 w-6 text-white"
+                          className="w-6 h-6 text-white"
                           aria-hidden="true"
                         />
                       </span>
@@ -346,7 +360,7 @@ export default function Index() {
                       <div className="mt-6">
                         <a
                           href="#"
-                          className="inline-flex bg-gradient-to-r from-pink-600 to-yellow-500 bg-origin-border px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-pink-700 hover:to-yellow-600"
+                          className="inline-flex py-2 px-4 text-base font-medium text-white bg-gradient-to-r from-pink-600 to-yellow-500 rounded-md border border-transparent shadow-sm hover:from-pink-700 hover:to-yellow-600 bg-origin-border"
                         >
                           Get started
                         </a>
@@ -354,10 +368,10 @@ export default function Index() {
                     </div>
                   </div>
                 </div>
-                <div className="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1">
-                  <div className="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
+                <div className="mt-12 sm:mt-16 lg:col-start-1 lg:mt-0">
+                  <div className="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:relative lg:px-0 lg:m-0 lg:h-full">
                     <img
-                      className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
+                      className="w-full rounded-xl ring-1 ring-black ring-opacity-5 shadow-xl lg:absolute lg:right-0 lg:w-auto lg:max-w-none lg:h-full"
                       src="https://tailwindui.com/img/component-images/inbox-app-screenshot-2.jpg"
                       alt="Customer profile user interface"
                     />
@@ -369,8 +383,8 @@ export default function Index() {
 
           {/* Gradient Feature Section */}
           {/*  <div className="bg-gradient-to-r from-pink-800 to-yellow-600">
-            <div className="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:pt-24 lg:px-8">
-              <h2 className="text-3xl font-extrabold text-white tracking-tight">
+            <div className="py-16 px-4 mx-auto max-w-4xl sm:px-6 sm:pt-20 sm:pb-24 lg:px-8 lg:pt-24 lg:max-w-7xl">
+              <h2 className="text-3xl font-extrabold tracking-tight text-white">
                 Inbox support built for efficiency
               </h2>
               <p className="mt-4 max-w-3xl text-lg text-pink-200">
@@ -378,13 +392,13 @@ export default function Index() {
                 Et magna sit morbi lobortis. Blandit aliquam sit nisl euismod
                 mattis in.
               </p>
-              <div className="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16">
+              <div className="grid grid-cols-1 gap-x-6 gap-y-12 mt-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16 lg:mt-16">
                 {features.map((feature) => (
                   <div key={feature.name}>
                     <div>
-                      <span className="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
+                      <span className="flex justify-center items-center w-12 h-12 bg-white bg-opacity-10 rounded-md">
                         <feature.icon
-                          className="h-6 w-6 text-white"
+                          className="w-6 h-6 text-white"
                           aria-hidden="true"
                         />
                       </span>
@@ -405,17 +419,17 @@ export default function Index() {
 
           {/* Stats section */}
           {/* <div className="relative bg-gray-900">
-            <div className="h-80 absolute inset-x-0 bottom-0 xl:top-0 xl:h-full">
-              <div className="h-full w-full xl:grid xl:grid-cols-2">
+            <div className="absolute inset-x-0 bottom-0 h-80 xl:top-0 xl:h-full">
+              <div className="w-full h-full xl:grid xl:grid-cols-2">
                 <div className="h-full xl:relative xl:col-start-2">
                   <img
-                    className="h-full w-full object-cover opacity-25 xl:absolute xl:inset-0"
+                    className="object-cover w-full h-full opacity-25 xl:absolute xl:inset-0"
                     src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2830&q=80&sat=-100"
                     alt="People working on laptops"
                   />
                   <div
                     aria-hidden="true"
-                    className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-gray-900 xl:inset-y-0 xl:left-0 xl:h-full xl:w-32 xl:bg-gradient-to-r"
+                    className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-gray-900 xl:inset-y-0 xl:left-0 xl:w-32 xl:h-full xl:bg-gradient-to-r"
                   />
                 </div>
               </div>
@@ -424,23 +438,23 @@ export default function Index() {
 
           {/* CTA Section */}
           {/*   <div className="bg-white">
-            <div className="max-w-4xl mx-auto py-16 px-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <div className="py-16 px-4 mx-auto max-w-4xl sm:py-24 sm:px-6 lg:flex lg:justify-between lg:items-center lg:px-8 lg:max-w-7xl">
               <h2 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                 <span className="block">Ready to get started?</span>
-                <span className="-mb-1 pb-1 block bg-gradient-to-r from-pink-600 to-yellow-500 bg-clip-text text-transparent">
+                <span className="block pb-1 -mb-1 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-yellow-500">
                   Get in touch or create an account.
                 </span>
               </h2>
-              <div className="mt-6 space-y-4 sm:space-y-0 sm:flex sm:space-x-5">
+              <div className="mt-6 space-y-4 sm:flex sm:space-y-0 sm:space-x-5">
                 <a
                   href="#"
-                  className="flex items-center justify-center bg-gradient-to-r from-pink-600 to-yellow-500 bg-origin-border px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-pink-700 hover:to-yellow-600"
+                  className="flex justify-center items-center py-3 px-4 text-base font-medium text-white bg-gradient-to-r from-pink-600 to-yellow-500 rounded-md border border-transparent shadow-sm hover:from-pink-700 hover:to-yellow-600 bg-origin-border"
                 >
                   Learn more
                 </a>
                 <a
                   href="#"
-                  className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-yellow-600 bg-yellow-50 hover:bg-yellow-100"
+                  className="flex justify-center items-center py-3 px-4 text-base font-medium text-yellow-600 bg-yellow-50 rounded-md border border-transparent shadow-sm hover:bg-yellow-100"
                 >
                   Get started
                 </a>
@@ -451,5 +465,5 @@ export default function Index() {
         <Footer />
       </div>
     </div>
-  )
+  );
 }

@@ -1,11 +1,11 @@
-import { Footer } from '~/ui/footer'
+import { Footer } from "~/ui/footer";
 
 export default function Impressum() {
   return (
     <div>
-      <div className="prose prose-lg mx-auto max-w-prose md:mt-5 md:max-w-3xl xl:prose-lg">
+      <div className="mx-auto max-w-prose md:mt-5 md:max-w-3xl prose prose-lg xl:prose-lg">
         <div>
-          <div className="prose prose-lg mx-auto prose-headings:underline prose-a:text-primary-600 md:prose-lg lg:prose-2xl">
+          <div className="mx-auto prose prose-lg prose-headings:underline prose-a:text-primary-600 md:prose-lg lg:prose-2xl">
             <h1 id="impressum">Impressum</h1>
             <h2 id="angaben-gemaess-5-tmg">Angaben gemäß § 5 TMG</h2>
             <p>
@@ -58,7 +58,7 @@ export default function Impressum() {
             <h2 id="eu-streitschlichtung">EU-Streitschlichtung</h2>
             <p>
               Die Europäische Kommission stellt eine Plattform zur
-              Online-Streitbeilegung (OS) bereit:{' '}
+              Online-Streitbeilegung (OS) bereit:{" "}
               <a
                 href="https://ec.europa.eu/consumers/odr/"
                 target="_blank"
@@ -146,5 +146,5 @@ export default function Impressum() {
       </div>
       <Footer />
     </div>
-  )
+  );
 }

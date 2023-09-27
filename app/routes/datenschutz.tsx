@@ -1,8 +1,8 @@
-import { Footer } from '~/ui/footer'
+import { Footer } from "~/ui/footer";
 
 export default function Datenschutz() {
   return (
-    <div className="prose prose-lg mx-auto prose-headings:underline prose-a:text-primary-600 md:prose-lg lg:prose-2xl">
+    <div className="mx-auto prose prose-lg prose-headings:underline prose-a:text-primary-600 md:prose-lg lg:prose-2xl">
       <h1 id="datenschutzerklaerung">Datenschutz­erklärung</h1>
       <h2 id="1.-datenschutz-auf-einen-blick">
         1. Datenschutz auf einen Blick
@@ -142,7 +142,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Die Datenübertragung in die USA wird auf die Standardvertragsklauseln
-        der EU-Kommission gestützt. Details finden Sie hier:{' '}
+        der EU-Kommission gestützt. Details finden Sie hier:{" "}
         <a
           href="https://cloud.google.com/terms/eu-model-contract-clause"
           target="_blank"
@@ -154,7 +154,7 @@ export default function Datenschutz() {
         .
       </p>
       <p>
-        Weitere Informationen zu Google Cloud CDN finden Sie hier:{' '}
+        Weitere Informationen zu Google Cloud CDN finden Sie hier:{" "}
         <a
           href="https://cloud.google.com/cdn/docs/overview?hl=de"
           target="_blank"
@@ -193,7 +193,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Die Datenübertragung in die USA wird auf die Standardvertragsklauseln
-        der EU-Kommission gestützt. Details finden Sie hier:{' '}
+        der EU-Kommission gestützt. Details finden Sie hier:{" "}
         <a
           href="https://aws.amazon.com/de/blogs/security/aws-gdpr-data-processing-addendum/"
           target="_blank"
@@ -205,7 +205,7 @@ export default function Datenschutz() {
         .
       </p>
       <p>
-        Weitere Informationen zu Amazon CloudFront CDN finden Sie hier:{' '}
+        Weitere Informationen zu Amazon CloudFront CDN finden Sie hier:{" "}
         <a
           href="https://d1.awsstatic.com/legal/privacypolicy/AWS_Privacy_Notice__German_Translation.pdf"
           target="_blank"
@@ -547,7 +547,7 @@ export default function Datenschutz() {
         Einwilligung zur Speicherung bestimmter Cookies auf Ihrem Endgerät oder
         zum Einsatz bestimmter Technologien einzuholen und diese
         datenschutzkonform zu dokumentieren. Anbieter dieser Technologie ist die
-        Usercentrics GmbH, Sendlinger Straße 7, 80331 München, Website:{' '}
+        Usercentrics GmbH, Sendlinger Straße 7, 80331 München, Website:{" "}
         <a
           href="https://usercentrics.com/de/"
           target="_blank"
@@ -555,7 +555,7 @@ export default function Datenschutz() {
           className="external"
         >
           https://usercentrics.com/de/
-        </a>{' '}
+        </a>{" "}
         (im Folgenden „Usercentrics“).
       </p>
       <p>
@@ -701,7 +701,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Weitere Informationen entnehmen Sie der Datenschutzerklärung von Google
-        unter{' '}
+        unter{" "}
         <a
           href="https://policies.google.com/"
           target="_blank"
@@ -733,7 +733,7 @@ export default function Datenschutz() {
         werden für die Planung, Durchführung und ggf. für die Nachbereitung des
         Termins verwendet. Die Termindaten werden für uns auf den Servern von
         Calendly gespeichert, dessen Datenschutzerklärung Sie hier einsehen
-        können:{' '}
+        können:{" "}
         <a
           href="https://calendly.com/de/pages/privacy"
           target="_blank"
@@ -763,7 +763,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Die Datenübertragung in die USA wird auf die Standardvertragsklauseln
-        der EU-Kommission gestützt. Details finden Sie hier:{' '}
+        der EU-Kommission gestützt. Details finden Sie hier:{" "}
         <a
           href="https://calendly.com/pages/dpa"
           target="_blank"
@@ -851,7 +851,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Die Datenübertragung in die USA wird auf die Standardvertragsklauseln
-        der EU-Kommission gestützt. Details finden Sie hier:{' '}
+        der EU-Kommission gestützt. Details finden Sie hier:{" "}
         <a
           href="https://privacy.google.com/businesses/controllerterms/mccs/"
           target="_blank"
@@ -866,7 +866,7 @@ export default function Datenschutz() {
       <p>
         Sie können die Erfassung und Verarbeitung Ihrer Daten durch Google
         verhindern, indem Sie das unter dem folgenden Link verfügbare
-        Browser-Plugin herunterladen und installieren:{' '}
+        Browser-Plugin herunterladen und installieren:{" "}
         <a
           href="https://tools.google.com/dlpage/gaoptout?hl=de"
           target="_blank"
@@ -879,7 +879,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Mehr Informationen zum Umgang mit Nutzerdaten bei Google Analytics
-        finden Sie in der Datenschutzerklärung von Google:{' '}
+        finden Sie in der Datenschutzerklärung von Google:{" "}
         <a
           href="https://support.google.com/analytics/answer/6004245?hl=de"
           target="_blank"
@@ -967,7 +967,7 @@ export default function Datenschutz() {
       <h4 id="deaktivieren-von-hotjar">Deaktivieren von Hotjar</h4>
       <p>
         Wenn Sie die Datenerfassung durch Hotjar deaktivieren möchten, klicken
-        Sie auf folgenden Link und folgen Sie den dortigen Anweisungen:{' '}
+        Sie auf folgenden Link und folgen Sie den dortigen Anweisungen:{" "}
         <a
           href="https://www.hotjar.com/policies/do-not-track/"
           target="_blank"
@@ -983,7 +983,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Nähere Informationen über Hotjar und zu den erfassten Daten entnehmen
-        Sie der Datenschutzerklärung von Hotjar unter dem folgenden Link:{' '}
+        Sie der Datenschutzerklärung von Hotjar unter dem folgenden Link:{" "}
         <a
           href="https://www.hotjar.com/privacy"
           target="_blank"
@@ -1025,7 +1025,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Die Datenübertragung in die USA wird auf die Standardvertragsklauseln
-        der EU-Kommission gestützt. Details finden Sie hier:{' '}
+        der EU-Kommission gestützt. Details finden Sie hier:{" "}
         <a
           href="https://policies.google.com/privacy/frameworks"
           target="_blank"
@@ -1033,8 +1033,8 @@ export default function Datenschutz() {
           className="external"
         >
           https://policies.google.com/privacy/frameworks
-        </a>{' '}
-        und{' '}
+        </a>{" "}
+        und{" "}
         <a
           href="https://privacy.google.com/businesses/controllerterms/mccs/"
           target="_blank"
@@ -1062,7 +1062,7 @@ export default function Datenschutz() {
         Werbeanzeigen richten sich dann beispielsweise nach Ihrem Standort, dem
         Inhalt der Website, auf der Sie sich befinden oder nach Ihren aktuellen
         Suchbegriffen. Mehr zu den Unterschieden zwischen personalisiertem und
-        nicht-personalisiertem Targeting mit Google AdSense finden Sie unter:{' '}
+        nicht-personalisiertem Targeting mit Google AdSense finden Sie unter:{" "}
         <a
           href="https://support.google.com/adsense/answer/9007336"
           target="_blank"
@@ -1093,7 +1093,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Die Datenübertragung in die USA wird auf die Standardvertragsklauseln
-        der EU-Kommission gestützt. Details finden Sie hier:{' '}
+        der EU-Kommission gestützt. Details finden Sie hier:{" "}
         <a
           href="https://privacy.google.com/businesses/controllerterms/mccs/"
           target="_blank"
@@ -1106,7 +1106,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Sie können Ihre Werbeeinstellungen selbstständig in Ihrem Nutzer-Account
-        anpassen. Klicken Sie hierzu auf folgenden Link und loggen Sie sich ein:{' '}
+        anpassen. Klicken Sie hierzu auf folgenden Link und loggen Sie sich ein:{" "}
         <a
           href="https://adssettings.google.com/authenticated"
           target="_blank"
@@ -1119,7 +1119,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Weitere Informationen zu den Werbetechnologien von Google finden Sie
-        hier:{' '}
+        hier:{" "}
         <a
           href="https://policies.google.com/technologies/ads"
           target="_blank"
@@ -1127,8 +1127,8 @@ export default function Datenschutz() {
           className="external"
         >
           https://policies.google.com/technologies/ads
-        </a>{' '}
-        und{' '}
+        </a>{" "}
+        und{" "}
         <a
           href="https://www.google.de/intl/de/policies/privacy/"
           target="_blank"
@@ -1163,7 +1163,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Wenn Sie über einen Google-Account verfügen, können Sie der
-        personalisierten Werbung unter folgendem Link widersprechen:{' '}
+        personalisierten Werbung unter folgendem Link widersprechen:{" "}
         <a
           href="https://www.google.com/settings/ads/onweb/"
           target="_blank"
@@ -1187,7 +1187,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Weitergehende Informationen und die Datenschutzbestimmungen finden Sie
-        in der Datenschutzerklärung von Google unter:{' '}
+        in der Datenschutzerklärung von Google unter:{" "}
         <a
           href="https://policies.google.com/technologies/ads?hl=de"
           target="_blank"
@@ -1241,7 +1241,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Mehr Informationen zu Google Conversion-Tracking finden Sie in den
-        Datenschutzbestimmungen von Google:{' '}
+        Datenschutzbestimmungen von Google:{" "}
         <a
           href="https://policies.google.com/privacy?hl=de"
           target="_blank"
@@ -1288,7 +1288,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Weitere Informationen zu Widerspruchsmöglichkeiten gegen die von Google
-        eingeblendeten Werbeanzeigen entnehmen Sie folgenden Links:{' '}
+        eingeblendeten Werbeanzeigen entnehmen Sie folgenden Links:{" "}
         <a
           href="https://policies.google.com/technologies/ads"
           target="_blank"
@@ -1296,8 +1296,8 @@ export default function Datenschutz() {
           className="external"
         >
           https://policies.google.com/technologies/ads
-        </a>{' '}
-        und{' '}
+        </a>{" "}
+        und{" "}
         <a
           href="https://adssettings.google.com/authenticated"
           target="_blank"
@@ -1328,7 +1328,7 @@ export default function Datenschutz() {
         wir können keine Rückschlüsse auf die Identität der Nutzer ziehen. Die
         Daten werden aber von Facebook gespeichert und verarbeitet, sodass eine
         Verbindung zum jeweiligen Nutzerprofil möglich ist und Facebook die
-        Daten für eigene Werbezwecke, entsprechend der{' '}
+        Daten für eigene Werbezwecke, entsprechend der{" "}
         <a
           href="https://de-de.facebook.com/about/privacy/"
           target="_blank"
@@ -1336,7 +1336,7 @@ export default function Datenschutz() {
           className="external"
         >
           Facebook-Datenverwendungsrichtlinie
-        </a>{' '}
+        </a>{" "}
         verwenden kann. Dadurch kann Facebook das Schalten von Werbeanzeigen auf
         Seiten von Facebook sowie außerhalb von Facebook ermöglichen. Diese
         Verwendung der Daten kann von uns als Seitenbetreiber nicht beeinflusst
@@ -1355,7 +1355,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Die Datenübertragung in die USA wird auf die Standardvertragsklauseln
-        der EU-Kommission gestützt. Details finden Sie hier:{' '}
+        der EU-Kommission gestützt. Details finden Sie hier:{" "}
         <a
           href="https://www.facebook.com/legal/EU_data_transfer_addendum"
           target="_blank"
@@ -1363,8 +1363,8 @@ export default function Datenschutz() {
           className="external"
         >
           https://www.facebook.com/legal/EU_data_transfer_addendum
-        </a>{' '}
-        und{' '}
+        </a>{" "}
+        und{" "}
         <a
           href="https://de-de.facebook.com/help/566994660333381"
           target="_blank"
@@ -1386,7 +1386,7 @@ export default function Datenschutz() {
         Verarbeitung durch Facebook ist nicht Teil der gemeinsamen
         Verantwortung. Die uns gemeinsam obliegenden Verpflichtungen wurden in
         einer Vereinbarung über gemeinsame Verarbeitung festgehalten. Den
-        Wortlaut der Vereinbarung finden Sie unter:{' '}
+        Wortlaut der Vereinbarung finden Sie unter:{" "}
         <a
           href="https://www.facebook.com/legal/controller_addendum"
           target="_blank"
@@ -1407,7 +1407,7 @@ export default function Datenschutz() {
       </p>
       <p>
         In den Datenschutzhinweisen von Facebook finden Sie weitere Hinweise zum
-        Schutz Ihrer Privatsphäre:{' '}
+        Schutz Ihrer Privatsphäre:{" "}
         <a
           href="https://de-de.facebook.com/about/privacy/"
           target="_blank"
@@ -1420,7 +1420,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Sie können außerdem die Remarketing-Funktion „Custom Audiences“ im
-        Bereich Einstellungen für Werbeanzeigen unter{' '}
+        Bereich Einstellungen für Werbeanzeigen unter{" "}
         <a
           href="https://www.facebook.com/ads/preferences/?entry_product=ad_settings_screen"
           target="_blank"
@@ -1428,13 +1428,13 @@ export default function Datenschutz() {
           className="external"
         >
           https://www.facebook.com/ads/preferences/?entry_product=ad_settings_screen
-        </a>{' '}
+        </a>{" "}
         deaktivieren. Dazu müssen Sie bei Facebook angemeldet sein.
       </p>
       <p>
         Wenn Sie kein Facebook Konto besitzen, können Sie nutzungsbasierte
         Werbung von Facebook auf der Website der European Interactive Digital
-        Advertising Alliance deaktivieren:{' '}
+        Advertising Alliance deaktivieren:{" "}
         <a
           href="http://www.youronlinechoices.com/de/praferenzmanagement/"
           target="_blank"
@@ -1484,7 +1484,7 @@ export default function Datenschutz() {
         nicht bestimmten Einzelpersonen zugeordnet werden. LinkedIn wird die
         erfassten personenbezogenen Daten der Websitebesucher auf seinen Servern
         in den USA speichern und sie im Rahmen eigener Werbemaßnahmen nutzen.
-        Details entnehmen Sie der Datenschutzerklärung von LinkedIn unter{' '}
+        Details entnehmen Sie der Datenschutzerklärung von LinkedIn unter{" "}
         <a
           href="https://www.linkedin.com/legal/privacy-policy#choices-oblig"
           target="_blank"
@@ -1509,7 +1509,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Die Datenübertragung in die USA wird auf die Standardvertragsklauseln
-        der EU-Kommission gestützt. Details finden Sie hier:{' '}
+        der EU-Kommission gestützt. Details finden Sie hier:{" "}
         <a
           href="https://www.linkedin.com/legal/l/dpa"
           target="_blank"
@@ -1517,8 +1517,8 @@ export default function Datenschutz() {
           className="external"
         >
           https://www.linkedin.com/legal/l/dpa
-        </a>{' '}
-        und{' '}
+        </a>{" "}
+        und{" "}
         <a
           href="https://www.linkedin.com/legal/l/eu-sccs"
           target="_blank"
@@ -1534,7 +1534,7 @@ export default function Datenschutz() {
       </h4>
       <p>
         Der Analyse des Nutzungsverhaltens sowie zielgerichtete Werbung durch
-        LinkedIn unter folgendem Link widersprechen:{' '}
+        LinkedIn unter folgendem Link widersprechen:{" "}
         <a
           href="https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out"
           target="_blank"
@@ -1600,7 +1600,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Die Datenübertragung in die USA wird auf die Standardvertragsklauseln
-        der EU-Kommission gestützt. Details finden Sie hier:{' '}
+        der EU-Kommission gestützt. Details finden Sie hier:{" "}
         <a
           href="https://mailchimp.com/eu-us-data-transfer-statement/"
           target="_blank"
@@ -1608,8 +1608,8 @@ export default function Datenschutz() {
           className="external"
         >
           https://mailchimp.com/eu-us-data-transfer-statement/
-        </a>{' '}
-        und{' '}
+        </a>{" "}
+        und{" "}
         <a
           href="https://mailchimp.com/legal/data-processing-addendum/#Annex_C_-_Standard_Contractual_Clauses"
           target="_blank"
@@ -1629,14 +1629,14 @@ export default function Datenschutz() {
         sowohl Ihrem Interesse als auch unserem Interesse an der Einhaltung der
         gesetzlichen Vorgaben beim Versand von Newslettern (berechtigtes
         Interesse im Sinne des Art. 6 Abs. 1 lit. f DSGVO). Die Speicherung in
-        der Blacklist ist zeitlich nicht befristet.{' '}
+        der Blacklist ist zeitlich nicht befristet.{" "}
         <strong>
           Sie können der Speicherung widersprechen, sofern Ihre Interessen unser
           berechtigtes Interesse überwiegen.
         </strong>
       </p>
       <p>
-        Näheres entnehmen Sie den Datenschutzbestimmungen von MailChimp unter:{' '}
+        Näheres entnehmen Sie den Datenschutzbestimmungen von MailChimp unter:{" "}
         <a
           href="https://mailchimp.com/legal/terms/"
           target="_blank"
@@ -1686,7 +1686,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Die Datenübertragung in die USA wird auf die Standardvertragsklauseln
-        der EU-Kommission gestützt. Details finden Sie hier:{' '}
+        der EU-Kommission gestützt. Details finden Sie hier:{" "}
         <a
           href="https://privacy.google.com/businesses/gdprcontrollerterms/"
           target="_blank"
@@ -1694,8 +1694,8 @@ export default function Datenschutz() {
           className="external"
         >
           https://privacy.google.com/businesses/gdprcontrollerterms/
-        </a>{' '}
-        und{' '}
+        </a>{" "}
+        und{" "}
         <a
           href="https://privacy.google.com/businesses/gdprcontrollerterms/sccs/"
           target="_blank"
@@ -1708,7 +1708,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Mehr Informationen zum Umgang mit Nutzerdaten finden Sie in der
-        Datenschutzerklärung von Google:{' '}
+        Datenschutzerklärung von Google:{" "}
         <a
           href="https://policies.google.com/privacy?hl=de"
           target="_blank"
@@ -1755,7 +1755,7 @@ export default function Datenschutz() {
       <p>
         Weitere Informationen zu Google reCAPTCHA entnehmen Sie den
         Google-Datenschutzbestimmungen und den Google Nutzungsbedingungen unter
-        folgenden Links:{' '}
+        folgenden Links:{" "}
         <a
           href="https://policies.google.com/privacy?hl=de"
           target="_blank"
@@ -1763,8 +1763,8 @@ export default function Datenschutz() {
           className="external"
         >
           https://policies.google.com/privacy?hl=de
-        </a>{' '}
-        und{' '}
+        </a>{" "}
+        und{" "}
         <a
           href="https://policies.google.com/terms?hl=de"
           target="_blank"
@@ -1808,7 +1808,7 @@ export default function Datenschutz() {
       <h4 id="amazon-partnerprogramm">Amazon Partner­programm</h4>
       <p>
         Anbieter ist die Amazon Europe Core S.à.r.l. Details entnehmen Sie der
-        Datenschutzerklärung von Amazon unter:{' '}
+        Datenschutzerklärung von Amazon unter:{" "}
         <a
           href="https://www.amazon.de/gp/help/customer/display.html?nodeId=201909010"
           target="_blank"
@@ -1903,7 +1903,7 @@ export default function Datenschutz() {
         Wir nutzen Zoom. Anbieter dieses Dienstes ist die Zoom Communications
         Inc., San Jose, 55 Almaden Boulevard, 6th Floor, San Jose, CA 95113,
         USA. Details zur Datenverarbeitung entnehmen Sie der
-        Datenschutzerklärung von Zoom:{' '}
+        Datenschutzerklärung von Zoom:{" "}
         <a
           href="https://zoom.us/de-de/privacy.html"
           target="_blank"
@@ -1916,7 +1916,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Die Datenübertragung in die USA wird auf die Standardvertragsklauseln
-        der EU-Kommission gestützt. Details finden Sie hier:{' '}
+        der EU-Kommission gestützt. Details finden Sie hier:{" "}
         <a
           href="https://zoom.us/de-de/privacy.html"
           target="_blank"
@@ -1939,7 +1939,7 @@ export default function Datenschutz() {
       <p>
         Wir nutzen TeamViewer. Anbieter ist die TeamViewer Germany GmbH,
         Jahnstr. 30, 73037 Göppingen. Details zur Datenverarbeitung entnehmen
-        Sie der Datenschutzerklärung von TeamViewer:{' '}
+        Sie der Datenschutzerklärung von TeamViewer:{" "}
         <a
           href="https://www.teamviewer.com/de/datenschutzerklaerung/"
           target="_blank"
@@ -1962,7 +1962,7 @@ export default function Datenschutz() {
       <p>
         Wir nutzen GoToMeeting. Anbieter ist die LogMeIn, Inc., 320 Summer
         Street Boston, MA 02210, USA. Details zur Datenverarbeitung entnehmen
-        Sie der Datenschutzerklärung von GoToMeeting:{' '}
+        Sie der Datenschutzerklärung von GoToMeeting:{" "}
         <a
           href="https://www.logmeininc.com/de/legal/privacy"
           target="_blank"
@@ -1975,7 +1975,7 @@ export default function Datenschutz() {
       </p>
       <p>
         Die Datenübertragung in die USA wird auf die Standardvertragsklauseln
-        der EU-Kommission gestützt. Details finden Sie hier:{' '}
+        der EU-Kommission gestützt. Details finden Sie hier:{" "}
         <a
           href="https://logmeincdn.azureedge.net/legal/lmi-customer-dpa-2020v1-de.pdf"
           target="_blank"
@@ -1999,7 +1999,7 @@ export default function Datenschutz() {
         Wir nutzen Microsoft Teams. Anbieter ist die Microsoft Corporation, One
         Microsoft Way, Redmond, WA 98052-6399, USA. Details zur
         Datenverarbeitung entnehmen Sie der Datenschutzerklärung von Microsoft
-        Teams:{' '}
+        Teams:{" "}
         <a
           href="https://privacy.microsoft.com/de-de/privacystatement"
           target="_blank"
@@ -2023,7 +2023,7 @@ export default function Datenschutz() {
         Wir nutzen Google Hangouts. Anbieter ist die Google Ireland Limited,
         Gordon House, Barrow Street, Dublin 4, Irland. Details zur
         Datenverarbeitung entnehmen Sie der Datenschutzerklärung von Google
-        Hangouts:{' '}
+        Hangouts:{" "}
         <a
           href="https://policies.google.com/privacy?hl=de"
           target="_blank"
@@ -2046,7 +2046,7 @@ export default function Datenschutz() {
       <p>
         Wir nutzen Google Meet. Anbieter ist die Google Ireland Limited, Gordon
         House, Barrow Street, Dublin 4, Irland. Details zur Datenverarbeitung
-        entnehmen Sie der Datenschutzerklärung von Google:{' '}
+        entnehmen Sie der Datenschutzerklärung von Google:{" "}
         <a
           href="https://policies.google.com/privacy?hl=de"
           target="_blank"
@@ -2099,5 +2099,5 @@ export default function Datenschutz() {
 
       <Footer />
     </div>
-  )
+  );
 }
