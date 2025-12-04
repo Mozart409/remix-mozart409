@@ -42,9 +42,7 @@ test("has footer", async ({ page }) => {
   await expect(footer).toBeVisible();
 });
 
-test("displays country information when header is present", async ({
-  page,
-}) => {
+test("displays country information when header is present", async ({ page }) => {
   await page.setExtraHTTPHeaders({ "cf-ipcountry": "US" });
   await page.goto("http://localhost:5173/");
 

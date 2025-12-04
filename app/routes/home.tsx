@@ -78,12 +78,14 @@ export default function Index({ loaderData }: Route.ComponentProps) {
                 <span className="text-base font-medium text-gray-500 whitespace-nowrap hover:text-gray-900">
                   Amadeus Mader
                 </span>
-                {/*  <a
+                {
+                  /*  <a
                   href="#"
                   className="inline-flex justify-center items-center py-2 px-4 ml-8 text-base font-medium text-white whitespace-nowrap bg-gradient-to-r from-pink-600 to-yellow-500 rounded-md border border-transparent shadow-sm hover:from-pink-700 hover:to-yellow-600 bg-origin-border"
                 >
                   Sign up
-                </a> */}
+                </a> */
+                }
               </div>
             </div>
           </Popover>
@@ -114,15 +116,11 @@ export default function Index({ loaderData }: Route.ComponentProps) {
                     data-testid="text-on-picture"
                     className="mx-auto mt-6 max-w-lg text-xl text-center text-yellow-200 sm:max-w-3xl"
                   >
-                    As a full-stack developer, I possess a deep-seated passion
-                    for efficient backends, dynamic websites and fault-tolerant
-                    applications / databases. My primary deployment platform is
-                    AWS and Hetzner, and I leverage modern
-                    Infrastructure-as-Code solutions (Terraform, Pulumi, AWS
-                    CDK) for this purpose. My technical expertise encompasses
-                    Rust, Go and TypeScript and Elixir. I hold a particular
-                    affinity for communication via actor systems. Notably, this
-                    page is constructed with Remix and Tailwind and is
+                    As a full-stack developer, I possess a deep-seated passion for efficient backends, dynamic websites
+                    and fault-tolerant applications / databases. My primary deployment platform is AWS and Hetzner, and
+                    I leverage modern Infrastructure-as-Code solutions (Terraform, Pulumi, AWS CDK) for this purpose. My
+                    technical expertise encompasses Rust, Go and TypeScript and Elixir. I hold a particular affinity for
+                    communication via actor systems. Notably, this page is constructed with Remix and Tailwind and is
                     seamlessly deployed to Cloudflare Workers.
                   </p>
                   <div className="mx-auto mt-10 max-w-sm sm:flex sm:justify-center sm:max-w-none">
@@ -148,16 +146,18 @@ export default function Index({ loaderData }: Route.ComponentProps) {
             </div>
           </div>
 
-          {country ? (
-            <div className="bg-gray-100">
-              <div className="py-16 px-4 mx-auto max-w-5xl sm:px-6 lg:px-8">
-                <div className="overflow-hidden bg-white rounded-lg divide-y divide-gray-200 shadow">
-                  <div className="py-5 px-4 sm:px-6">
-                    {/* Content goes here */}
-                    {/* We use less vertical padding on card headers on desktop than on body sections */}
-                    You are visiting this website from {country.flag}
-                  </div>
-                  {/*  <div className="py-5 px-4 sm:p-6">
+          {country
+            ? (
+              <div className="bg-gray-100">
+                <div className="py-16 px-4 mx-auto max-w-5xl sm:px-6 lg:px-8">
+                  <div className="overflow-hidden bg-white rounded-lg divide-y divide-gray-200 shadow">
+                    <div className="py-5 px-4 sm:px-6">
+                      {/* Content goes here */}
+                      {/* We use less vertical padding on card headers on desktop than on body sections */}
+                      You are visiting this website from {country.flag}
+                    </div>
+                    {
+                      /*  <div className="py-5 px-4 sm:p-6">
                     <p>Location: {country.flag}</p>
 
                     <p>Currencies</p>
@@ -178,14 +178,17 @@ export default function Index({ loaderData }: Route.ComponentProps) {
                         </li>
                       ))}
                     </ul>
-                  </div> */}
+                  </div> */
+                    }
+                  </div>
                 </div>
               </div>
-            </div>
-          ) : null}
+            )
+            : null}
 
           {/* Logo Cloud */}
-          {/*  <div className="bg-gray-100">
+          {
+            /*  <div className="bg-gray-100">
             <div className="py-16 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
               <p className="text-sm font-semibold tracking-wide text-center text-gray-500 uppercase">
                 Trusted by over 5 very average small businesses
@@ -228,10 +231,12 @@ export default function Index({ loaderData }: Route.ComponentProps) {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div> */
+          }
 
           {/* Alternating Feature Sections */}
-          {/*  <div className="overflow-hidden relative pt-16 pb-32">
+          {
+            /*  <div className="overflow-hidden relative pt-16 pb-32">
             <div
               aria-hidden="true"
               className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-gray-100"
@@ -351,10 +356,12 @@ export default function Index({ loaderData }: Route.ComponentProps) {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div> */
+          }
 
           {/* Gradient Feature Section */}
-          {/*  <div className="bg-gradient-to-r from-pink-800 to-yellow-600">
+          {
+            /*  <div className="bg-gradient-to-r from-pink-800 to-yellow-600">
             <div className="py-16 px-4 mx-auto max-w-4xl sm:px-6 sm:pt-20 sm:pb-24 lg:px-8 lg:pt-24 lg:max-w-7xl">
               <h2 className="text-3xl font-extrabold tracking-tight text-white">
                 Inbox support built for efficiency
@@ -387,10 +394,12 @@ export default function Index({ loaderData }: Route.ComponentProps) {
                 ))}
               </div>
             </div>
-          </div> */}
+          </div> */
+          }
 
           {/* Stats section */}
-          {/* <div className="relative bg-gray-900">
+          {
+            /* <div className="relative bg-gray-900">
             <div className="absolute inset-x-0 bottom-0 h-80 xl:top-0 xl:h-full">
               <div className="w-full h-full xl:grid xl:grid-cols-2">
                 <div className="h-full xl:relative xl:col-start-2">
@@ -406,10 +415,12 @@ export default function Index({ loaderData }: Route.ComponentProps) {
                 </div>
               </div>
             </div>
-                     </div> */}
+                     </div> */
+          }
 
           {/* CTA Section */}
-          {/*   <div className="bg-white">
+          {
+            /*   <div className="bg-white">
             <div className="py-16 px-4 mx-auto max-w-4xl sm:py-24 sm:px-6 lg:flex lg:justify-between lg:items-center lg:px-8 lg:max-w-7xl">
               <h2 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                 <span className="block">Ready to get started?</span>
@@ -432,7 +443,8 @@ export default function Index({ loaderData }: Route.ComponentProps) {
                 </a>
               </div>
             </div>
-          </div> */}
+          </div> */
+          }
         </main>
         <Footer />
       </div>
