@@ -31,23 +31,9 @@ const metrics = [
   },
 ];
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
-
 export let links: Route.LinksFunction = () => {
   return [{ rel: "canonical", href: "https://mozart409.com" }];
 };
-
-/* export const loader: LoaderFunction = ({ request }) => {
-  const lang = request.headers.get("cf-ipcountry");
-
-  let country = countries.find((c) => c.cca2 === lang);
-
-  return json({
-    country,
-  });
-}; */
 
 export const loader = async ({ params, request }: Route.LoaderArgs) => {
   const lang = request.headers.get("cf-ipcountry");
@@ -70,13 +56,6 @@ export default function Index({ loaderData }: Route.ComponentProps) {
             <div className="flex justify-between items-center py-6 px-4 mx-auto max-w-7xl sm:px-6 md:justify-start md:space-x-10 lg:px-8">
               <div className="flex justify-start lg:flex-1 lg:w-0">
                 <span className="sr-only">Mozart409</span>
-                {/*  <img
-                  className="w-auto h-8 sm:h-10"
-                  src="/logo.svg"
-                  alt="Mozart409 Logo"
-                  width={32}
-                  height={32}
-                /> */}
                 <div>
                   <svg
                     className="w-auto h-8 sm:h-10"
@@ -133,20 +112,10 @@ export default function Index({ loaderData }: Route.ComponentProps) {
                   </h1>
                   <p className="mx-auto mt-6 max-w-lg text-xl text-center text-yellow-200 sm:max-w-3xl">
                     As a full-stack developer, I possess a deep-seated passion
-                    for crafting dynamic websites and serverless applications.
-                    My primary deployment platform is AWS, and I leverage the
-                    Cloud Development Kit (CDK) for this purpose. My technical
-                    expertise encompasses React, Node, and Go, and I hold a
-                    particular affinity for the{" "}
-                    <a
-                      target="_blank"
-                      href="https://strapi.io"
-                      rel="noreferrer"
-                      className="underline"
-                    >
-                      Strapi
-                    </a>{" "}
-                    CMS. Notably, this page is constructed with Remix and
+                    for efficient backends, dynamic websites and fault-tolerant applications / databases.
+                    My primary deployment platform is AWS and Hetzner, and I leverage modern Infrastructure-as-Code solutions (Terraform, Pulumi, AWS CDK) for this purpose. My technical
+                    expertise encompasses Rust, Go and TypeScript and Elixir. I hold a
+                    particular affinity for communication via actor systems. Notably, this page is constructed with Remix and
                     Tailwind and is seamlessly deployed to Cloudflare Workers.
                   </p>
                   <div className="mx-auto mt-10 max-w-sm sm:flex sm:justify-center sm:max-w-none">
@@ -155,7 +124,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
                         href="https://twitter.com/marc_van_sax"
                         className="flex justify-center items-center py-3 px-4 text-base font-medium text-yellow-600 bg-white rounded-md border border-transparent shadow-sm sm:px-8 hover:bg-yellow-50"
                       >
-                        <span>Twitter</span>
+                        <span>Twitter / X</span>
                       </a>
                       <a
                         href="https://github.com/mozart409"
