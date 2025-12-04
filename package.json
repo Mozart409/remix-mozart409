@@ -1,9 +1,9 @@
 {
-  "name": "remix-template-cloudflare-workers",
+  "name": "remix-mozart409",
   "private": true,
   "sideEffects": false,
   "type": "module",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "scripts": {
     "build": "remix build",
     "deploy": "wrangler deploy",
