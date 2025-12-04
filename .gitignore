@@ -9,3 +9,10 @@ node_modules
 app/styles/app.css
 .DS_Store
 .wrangler
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
