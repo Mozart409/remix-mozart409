@@ -1,14 +1,7 @@
-import type { SVGProps } from "react";
 import { Popover } from "@headlessui/react";
-import type {
-  LoaderFunction,
-  LoaderFunctionArgs,
-  LinksFunction,
-} from "@remix-run/cloudflare";
-import { json } from "@remix-run/cloudflare";
+import type { Route } from "./+types/home";
 
 import countries from "../lib/countries.json";
-import { Link, useLoaderData } from "@remix-run/react";
 
 import { Footer } from "~/ui/footer";
 const metrics = [
@@ -42,7 +35,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export let links: LinksFunction = () => {
+export let links: Route.LinksFunction = () => {
   return [{ rel: "canonical", href: "https://mozart409.com" }];
 };
 
@@ -56,18 +49,18 @@ export let links: LinksFunction = () => {
   });
 }; */
 
-export const loader = async ({ params, request }: LoaderFunctionArgs) => {
+export const loader = async ({ params, request }: Route.LoaderArgs) => {
   const lang = request.headers.get("cf-ipcountry");
 
   let country = countries.find((c) => c.cca2 === lang);
 
-  return json({
+  return {
     country,
-  });
+  };
 };
 
 export default function Index() {
-  const { country } = useLoaderData<typeof loader>();
+  const { country } = loaderData<typeof loader>();
 
   return (
     <div>

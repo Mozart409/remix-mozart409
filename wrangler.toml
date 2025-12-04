@@ -3,7 +3,7 @@ name = "remix-mozart409"
 account_id = "4ec8eba2586278dfd08eabdfad46630c"
 route = {pattern = "mozart409.com", zone_id = "ad3552ed28be9ee91e3a6b69f58ac014"}
 
-main = "./build/index.js"
+main = "./workers/app.ts"
 workers_dev = true
 
 # compatibility_date = "2022-05-14"
@@ -18,9 +18,3 @@ head_sampling_rate = 0.05
 [observability.logs]
 enabled = true
 head_sampling_rate = 0.6
-
-[site]
-bucket = "./public"
-
-[build]
-command = "npm run build"

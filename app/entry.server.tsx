@@ -1,59 +1,41 @@
-import type { AppLoadContext, EntryContext } from "@remix-run/cloudflare";
-import { RemixServer } from "@remix-run/react";
+import type { AppLoadContext, EntryContext } from "react-router";
+import { ServerRouter } from "react-router";
+import { isbot } from "isbot";
 import { renderToReadableStream } from "react-dom/server";
-import isbot from "isbot";
 
 export default async function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext,
-  loadContext: AppLoadContext,
+  routerContext: EntryContext,
+  _loadContext: AppLoadContext
 ) {
-  const body = await renderToReadableStream(
-    <RemixServer context={remixContext} url={request.url} />,
-    {
-      signal: request.signal,
-      onError(error: unknown) {
-        // Log streaming rendering errors from inside the shell
-        console.error(error);
-        responseStatusCode = 500;
-      },
-    },
-  );
+  let shellRendered = false;
+  const userAgent = request.headers.get("user-agent");
 
-  if (isbot(request.headers.get("user-agent"))) {
+  const body = await renderToReadableStream(
+    <ServerRouter context={routerContext} url={request.url} />,
+    {
+      onError(error: unknown) {
+        responseStatusCode = 500;
+        // Log streaming rendering errors from inside the shell.  Don't log
+        // errors encountered during initial shell rendering since they'll
+        // reject and get logged in handleDocumentRequest.
+        if (shellRendered) {
+          console.error(error);
+        }
+      },
+    }
+  );
+  shellRendered = true;
+
+  // Ensure requests from bots and SPA Mode renders wait for all content to load before responding
+  // https://react.dev/reference/react-dom/server/renderToPipeableStream#waiting-for-all-content-to-load-for-crawlers-and-static-generation
+  if ((userAgent && isbot(userAgent)) || routerContext.isSpaMode) {
     await body.allReady;
   }
 
-  const headers = [
-    { "Content-Security-Policy": "upgrade-insecure-requests" },
-    { "Strict-Transport-Security": "max-age=7200" },
-    { "X-Xss-Protection": "1; mode=block" },
-    { "X-Frame-Options": "DENY" },
-    { "X-Content-Type-Options": "nosniff" },
-    { "Referrer-Policy": "strict-origin-when-cross-origin" },
-    {
-      "Permissions-Policy":
-        "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), microphone=(), midi=(), usb=(), conversion-measurement=(), focus-without-user-activation=(), hid=(), idle-detection=(), interest-cohort=(), serial=(), sync-script=(), trust-token-redemption=(), window-placement=(), vertical-scroll=()",
-    },
-  ];
-
   responseHeaders.set("Content-Type", "text/html");
-
-  /* if (process.env.NODE_ENV === 'development') {
-  } */
-
-  if (process.env.NODE_ENV === "production") {
-    responseHeaders.set(
-      "Content-Security-Policy",
-      "default-src 'self'  https://mozart409.com; img-src 'self' https://imagedelivery.net; style-src 'self';",
-    );
-    headers.map((item) => {
-      return responseHeaders.set(Object.keys(item)[0], Object.values(item)[0]);
-    });
-  }
-
   return new Response(body, {
     headers: responseHeaders,
     status: responseStatusCode,
