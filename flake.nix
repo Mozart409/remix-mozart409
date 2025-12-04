@@ -59,6 +59,7 @@
 
           echo "node: $(node -v)"
           echo "bun: $(bun -v)"
+          echo "pnpm: $(pnpm -v)"
           echo "To install dependencies, run: ni or pnpm install"
 
           # Add user to docker group if not already added

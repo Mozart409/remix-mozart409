@@ -3,10 +3,10 @@
 
 echo "Patching workerd binary for NixOS..."
 
-WORKERD_PATH="./website/node_modules/.pnpm/@cloudflare+workerd-linux-64@*/bin/workerd"
+WORKERD_PATH="./node_modules/.pnpm/@cloudflare+workerd-linux-64@*/bin/workerd"
 
-# Find the workerd binary
-WORKERD_BIN=$(find ./website/node_modules -name "workerd" -type f -executable 2>/dev/null | head -1)
+# Find the workerd binary (prefer the actual ELF binary over shell scripts)
+WORKERD_BIN=$(find ./node_modules -path "*/@cloudflare/workerd-linux-64/bin/workerd" -type f -executable 2>/dev/null | head -1)
 
 if [ -z "$WORKERD_BIN" ]; then
     echo "Could not find workerd binary"

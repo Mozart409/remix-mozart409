@@ -59,8 +59,8 @@ export const loader = async ({ params, request }: Route.LoaderArgs) => {
   };
 };
 
-export default function Index() {
-  const { country } = loaderData<typeof loader>();
+export default function Index({ loaderData }: Route.ComponentProps) {
+  const { country } = loaderData;
 
   return (
     <div>
