@@ -116,12 +116,20 @@ export default function Index({ loaderData }: Route.ComponentProps) {
                     data-testid="text-on-picture"
                     className="mx-auto mt-6 max-w-lg text-xl text-center text-yellow-200 sm:max-w-3xl"
                   >
-                    As a full-stack developer, I possess a deep-seated passion for efficient backends, dynamic websites
-                    and fault-tolerant applications / databases. My primary deployment platform is AWS and Hetzner, and
-                    I leverage modern Infrastructure-as-Code solutions (Terraform, Pulumi, AWS CDK) for this purpose. My
-                    technical expertise encompasses Rust, Go and TypeScript and Elixir. I hold a particular affinity for
-                    communication via actor systems. Notably, this page is constructed with Remix and Tailwind and is
-                    seamlessly deployed to Cloudflare Workers.
+                    As a full-stack developer with over 7 years of experience, complemented by 6 years in
+                    SysAdmin/Infrastructure and 3 years as a Solutions Consultant, I possess a deep-seated passion for
+                    efficient backends, dynamic websites, and fault-tolerant applications/databases. My primary
+                    deployment platforms are AWS and Hetzner, and I leverage modern Infrastructure-as-Code solutions
+                    (Terraform, Pulumi, AWS CDK) for this purpose. My technical expertise encompasses Rust, Go,
+                    TypeScript, Elixir, JavaScript, and Node.js, with a particular affinity for communication via actor
+                    systems, microservices, and tools like Kafka, NATS, and Protocol Buffers. I specialize in cloud
+                    platforms including AWS, Azure, and OpenShift, alongside DevOps practices with Docker, Kubernetes,
+                    and Terraform for scalability and Site Reliability Engineering. On the database side, I'm proficient
+                    in PostgreSQL, Redis, SQL, and fault-tolerant designs. For front-end work, I use React, and I have
+                    strong Linux System Administration skills, including Red Hat Enterprise Linux (RHEL). I've applied
+                    Domain-Driven Design (DDD) in consulting roles as a Technical Consultant, ensuring robust, scalable
+                    solutions. Notably, this page is constructed with Remix and Tailwind and is seamlessly deployed to
+                    Cloudflare Workers.
                   </p>
                   <div className="mx-auto mt-10 max-w-sm sm:flex sm:justify-center sm:max-w-none">
                     <div className="space-y-4 sm:inline-grid sm:grid-cols-2 sm:gap-5 sm:mx-auto sm:space-y-0">
