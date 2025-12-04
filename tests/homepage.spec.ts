@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
 test("has title", async ({ page }) => {
   await page.goto("http://localhost:5173/");
@@ -20,10 +20,10 @@ test("has social links", async ({ page }) => {
   ).toBeVisible();
 });
 
-
 test("has experience", async ({ page }) => {
   await page.goto("http://localhost:5173/");
 
   await expect(
-   page.getByTestId("text-on-picture", {text: "Rust"}));
+    page.getByTestId("text-on-picture", { text: "Rust" }),
+  );
 });

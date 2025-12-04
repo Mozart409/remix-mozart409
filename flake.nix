@@ -33,6 +33,7 @@
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
           nodejs_24
+          dprint
           nodePackages.pnpm
           lazydocker
           ni
@@ -40,7 +41,6 @@
           autoPatchelfHook
           # wrangler
           wrangler-flake.packages.${system}.wrangler
-          bun
           docker
           docker-compose
           lazydocker
@@ -58,7 +58,6 @@
           export PLAYWRIGHT_BROWSERS_PATH="${pkgs.playwright-driver.browsers}"
 
           echo "node: $(node -v)"
-          echo "bun: $(bun -v)"
           echo "pnpm: $(pnpm -v)"
           echo "To install dependencies, run: ni or pnpm install"
 
