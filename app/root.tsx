@@ -9,7 +9,7 @@ import {
   useRouteError,
 } from "@remix-run/react";
 import { XCircleIcon } from "@heroicons/react/20/solid";
-import styles from "./styles/app.css";
+import styles from "../styles/app.css";
 import type { LinksFunction } from "@remix-run/cloudflare";
 import { cssBundleHref } from "@remix-run/css-bundle";
 
