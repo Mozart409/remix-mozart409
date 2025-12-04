@@ -20,8 +20,7 @@ export function meta() {
   ];
 }
 
-export const links: Route.LinksFunction = () => [
-];
+export const links: Route.LinksFunction = () => [];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -36,7 +35,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
-
       </body>
     </html>
   );
@@ -65,7 +63,6 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   return (
     <main>
       <div className="p-4 bg-red-50 rounded-md">
-
         <div className="flex">
           <div className="flex-shrink-0">
             <XCircleIcon className="w-5 h-5 text-red-400" aria-hidden="true" />
@@ -77,7 +74,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
             <p>{details}</p>
             <div className="mt-2 text-sm text-red-700">
               {stack && (
-                <pre className="w-full p-4 overflow-x-auto">
+                <pre className="overflow-x-auto p-4 w-full">
                   <code>{stack}</code>
                 </pre>
               )}
@@ -88,6 +85,3 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     </main>
   );
 }
-
-
-
