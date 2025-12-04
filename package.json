@@ -12,7 +12,8 @@
     "cf-typegen": "wrangler types",
     "typecheck": "npm run cf-typegen && react-router typegen && tsc -b",
     "test": "playwright test",
-    "test:ui": "playwright test --ui"
+    "test:ui": "playwright test --ui",
+    "postinstall": "npm run cf-typegen"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
