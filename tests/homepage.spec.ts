@@ -1,14 +1,14 @@
 import { expect, test } from "@playwright/test";
 
 test("has title", async ({ page }) => {
-  await page.goto("http://localhost:5173/");
+  await page.goto("/");
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Mozart409/);
 });
 
 test("has social links", async ({ page }) => {
-  await page.goto("http://localhost:5173/");
+  await page.goto("/");
 
   // getByRole('link', { name: 'Twitter / X' });
 
@@ -21,12 +21,12 @@ test("has social links", async ({ page }) => {
 });
 
 test("has experience", async ({ page }) => {
-  await page.goto("http://localhost:5173/");
+  await page.goto("/");
   await expect(page.getByTestId("text-on-picture")).toContainText("Rust");
 });
 
 test("has hero section content", async ({ page }) => {
-  await page.goto("http://localhost:5173/");
+  await page.goto("/");
 
   await expect(
     page.getByRole("heading", { name: "Welcome to my" }),
@@ -36,15 +36,17 @@ test("has hero section content", async ({ page }) => {
 });
 
 test("has footer", async ({ page }) => {
-  await page.goto("http://localhost:5173/");
+  await page.goto("/");
 
   const footer = page.locator("footer");
   await expect(footer).toBeVisible();
 });
 
-test("displays country information when header is present", async ({ page }) => {
+test("displays country information when header is present", async ({
+  page,
+}) => {
   await page.setExtraHTTPHeaders({ "cf-ipcountry": "US" });
-  await page.goto("http://localhost:5173/");
+  await page.goto("/");
 
   await expect(
     page.getByText(/You are visiting this website from/),
@@ -52,7 +54,7 @@ test("displays country information when header is present", async ({ page }) => 
 });
 
 test("social links have correct hrefs", async ({ page }) => {
-  await page.goto("http://localhost:5173/");
+  await page.goto("/");
 
   const githubLink = page.getByTestId("social-github");
   const twitterLink = page.getByTestId("social-twitter");
@@ -68,7 +70,7 @@ test("social links have correct hrefs", async ({ page }) => {
 });
 
 test("has responsive design elements", async ({ page }) => {
-  await page.goto("http://localhost:5173/");
+  await page.goto("/");
 
   // Test mobile viewport
   await page.setViewportSize({ width: 375, height: 667 });
