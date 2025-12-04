@@ -1,17 +1,9 @@
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  isRouteErrorResponse,
-  useRouteError,
-} from "@remix-run/react";
 import { XCircleIcon } from "@heroicons/react/20/solid";
-import styles from "../styles/app.css";
-import type { LinksFunction } from "@remix-run/cloudflare";
-import { cssBundleHref } from "@remix-run/css-bundle";
+
+import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+
+import type { Route } from "./+types/root";
+import "./app.css";
 
 export function meta() {
   return [
@@ -21,12 +13,9 @@ export function meta() {
   ];
 }
 
-export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: styles },
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
-];
+export const links: Route.LinksFunction = () => [];
 
-export default function App() {
+export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -36,101 +25,55 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        {children}
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
       </body>
     </html>
   );
 }
 
-export function ErrorBoundary() {
-  const error = useRouteError();
+export default function App() {
+  return <Outlet />;
+}
 
-  if (error instanceof Error) {
-    return (
-      <div className="p-4 bg-red-50 rounded-md">
-        <div className="flex">
-          <div className="flex-shrink-0">
-            <XCircleIcon className="w-5 h-5 text-red-400" aria-hidden="true" />
-          </div>
-          <div className="ml-3">
-            <h3 className="text-sm font-medium text-red-800">
-              An unexpected error occurred:
-            </h3>
-            <div className="mt-2 text-sm text-red-700">
-              <ul role="list" className="pl-5 space-y-1 list-disc">
-                <li>{error.message}</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  let message = "Oops!";
+  let details = "An unexpected error occurred.";
+  let stack: string | undefined;
 
-  if (!isRouteErrorResponse(error)) {
-    return (
-      <div className="p-4 bg-red-50 rounded-md">
-        <div className="flex">
-          <div className="flex-shrink-0">
-            <XCircleIcon className="w-5 h-5 text-red-400" aria-hidden="true" />
-          </div>
-          <div className="ml-3">
-            <h3 className="text-sm font-medium text-red-800">
-              An unexpected error occurred:
-            </h3>
-            <div className="mt-2 text-sm text-red-700">
-              <ul role="list" className="pl-5 space-y-1 list-disc">
-                <li>Unknown Error</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error.status === 404) {
-    return (
-      <div className="p-4 bg-red-50 rounded-md">
-        <div className="flex">
-          <div className="flex-shrink-0">
-            <XCircleIcon className="w-5 h-5 text-red-400" aria-hidden="true" />
-          </div>
-          <div className="ml-3">
-            <h3 className="text-sm font-medium text-red-800">
-              An unexpected error occurred:
-            </h3>
-            <div className="mt-2 text-sm text-red-700">
-              <ul role="list" className="pl-5 space-y-1 list-disc">
-                <li>Chat not found</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+  if (isRouteErrorResponse(error)) {
+    message = error.status === 404 ? "404" : "Error";
+    details = error.status === 404
+      ? "The requested page could not be found."
+      : error.statusText || details;
+  } else if (import.meta.env.DEV && error && error instanceof Error) {
+    details = error.message;
+    stack = error.stack;
   }
 
   return (
-    <div className="p-4 bg-red-50 rounded-md">
-      <div className="flex">
-        <div className="flex-shrink-0">
-          <XCircleIcon className="w-5 h-5 text-red-400" aria-hidden="true" />
-        </div>
-        <div className="ml-3">
-          <h3 className="text-sm font-medium text-red-800">
-            An unexpected error occurred:
-          </h3>
-          <div className="mt-2 text-sm text-red-700">
-            <ul role="list" className="pl-5 space-y-1 list-disc">
-              <li>{error.statusText}</li>
-            </ul>
+    <main>
+      <div className="p-4 bg-red-50 rounded-md">
+        <div className="flex">
+          <div className="flex-shrink-0">
+            <XCircleIcon className="w-5 h-5 text-red-400" aria-hidden="true" />
+          </div>
+          <div className="ml-3">
+            <h3 className="text-sm font-medium text-red-800">
+              {message} - An unexpected error occurred:
+            </h3>
+            <p>{details}</p>
+            <div className="mt-2 text-sm text-red-700">
+              {stack && (
+                <pre className="overflow-x-auto p-4 w-full">
+                  <code>{stack}</code>
+                </pre>
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
