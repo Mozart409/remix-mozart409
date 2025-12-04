@@ -83,7 +83,8 @@ export const Footer: React.FC = () => {
           </Link>
 
           <p className="mt-8 text-base text-gray-400 md:order-1 md:mt-0">
-            &copy; {new Date().getFullYear()} Amadeus Mader. All rights reserved.
+            &copy; {new Date().getFullYear()} Amadeus Mader. All rights
+            reserved.
           </p>
         </div>
       </div>
