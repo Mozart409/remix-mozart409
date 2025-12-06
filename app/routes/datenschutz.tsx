@@ -5,7 +5,7 @@ export default function Datenschutz() {
   return (
     <div>
       <Navigation />
-      <div className="mx-auto max-w-prose md:mt-5 md:max-w-3xl prose prose-lg xl:prose-lg">
+      <div className="px-2 mx-auto max-w-prose md:mt-5 md:max-w-3xl prose prose-lg xl:prose-lg">
         <h1 id="datenschutzerklaerung">Datenschutz­erklärung</h1>
         <h2 id="1.-datenschutz-auf-einen-blick">
           1. Datenschutz auf einen Blick

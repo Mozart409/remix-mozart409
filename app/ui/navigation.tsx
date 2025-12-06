@@ -44,7 +44,7 @@ export const Navigation: React.FC = () => {
             </NavLink>
           </div>
 
-          <div className="hidden justify-end items-center md:flex md:flex-1 lg:w-0">
+          <div className="justify-end items-center flex flex-1 lg:w-0">
             <a
               href="mailto:website@mozart409.com"
               className="text-base font-medium text-gray-500 whitespace-nowrap hover:text-gray-900"
