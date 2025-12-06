@@ -85,10 +85,10 @@ test("desktop navigation has logo, home link and email button visible", async ({
 
   // Logo should be visible
   await expect(page.getByRole("banner").getByRole("link").first()).toBeVisible();
-  
+
   // Home link should be visible
   await expect(page.getByRole("banner").getByRole("link", { name: "Home" })).toBeVisible();
-  
+
   // Email me button should be visible
   await expect(page.getByRole("banner").getByRole("link", { name: "Email me" })).toBeVisible();
 });
@@ -99,10 +99,10 @@ test("mobile navigation has only logo and email button visible", async ({ page }
 
   // Logo should be visible
   await expect(page.getByRole("banner").getByRole("link").first()).toBeVisible();
-  
+
   // Home link should NOT be visible (hidden on mobile with md:flex class)
   await expect(page.getByRole("banner").getByRole("link", { name: "Home" })).not.toBeVisible();
-  
+
   // Email me button should be visible
   await expect(page.getByRole("banner").getByRole("link", { name: "Email me" })).toBeVisible();
 });

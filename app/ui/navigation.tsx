@@ -35,8 +35,8 @@ export const Navigation: React.FC = () => {
                 isPending
                   ? "pending"
                   : isActive
-                    ? "text-transparent bg-clip-text bg-linear-to-r from-indigo-500 to-teal-400 hover:text-teal-700"
-                    : ""}
+                  ? "text-transparent bg-clip-text bg-linear-to-r from-indigo-500 to-teal-400 hover:text-teal-700"
+                  : ""}
             >
               <span className="text-base font-medium whitespace-nowrap ">
                 Home
