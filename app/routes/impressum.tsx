@@ -1,8 +1,10 @@
 import { Footer } from "~/ui/footer";
+import { Navigation } from "~/ui/navigation";
 
 export default function Impressum() {
   return (
     <div>
+      <Navigation />
       <div className="mx-auto max-w-prose md:mt-5 md:max-w-3xl prose prose-lg xl:prose-lg">
         <div>
           <div className="mx-auto prose prose-lg prose-headings:underline prose-a:text-primary-600 md:prose-lg lg:prose-2xl">

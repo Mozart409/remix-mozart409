@@ -1,4 +1,5 @@
 @import "tailwindcss" source(".");
+@plugin "@tailwindcss/typography";
 
 html {
   @apply h-full bg-white;

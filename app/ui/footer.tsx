@@ -1,5 +1,4 @@
 import type { SVGProps } from "react";
-import { Link } from "react-router";
 
 const footerNavigation = {
   solutions: [
@@ -22,9 +21,8 @@ const footerNavigation = {
     { name: "Partners", href: "#" },
   ],
   legal: [
-    { name: "Claim", href: "#" },
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
+    { name: "Datenschutz", href: "/datenschutz" },
+    { name: "Impressum", href: "/impressum" },
   ],
   social: [
     {
@@ -73,17 +71,20 @@ export const Footer: React.FC = () => {
             ))}
           </div>
 
-          <Link to="/datenschutz" className="text-gray-400 hover:text-gray-500">
-            <span>Datenschutz</span>
-            {/*   <item.icon className="w-6 h-6" aria-hidden="true" /> */}
-          </Link>
-          <Link to="/impressum" className="text-gray-400 hover:text-gray-500">
-            <span>Impressum</span>
-            {/*  <item.icon className="w-6 h-6" aria-hidden="true" /> */}
-          </Link>
+          <div className="flex space-x-6 md:order-2">
+            {footerNavigation.legal.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-gray-400 hover:text-gray-500"
+              >
+                <span className="">{item.name}</span>
+              </a>
+            ))}
+          </div>
 
           <p className="mt-8 text-base text-gray-400 md:order-1 md:mt-0">
-            &copy; {new Date().getFullYear()} Amadeus Mader. All rights reserved.
+            &copy; {new Date().getFullYear()} Amadeus Mader.
           </p>
         </div>
       </div>
