@@ -1,3 +1,4 @@
+import { NavLink } from "react-router";
 import { Link } from "react-router";
 
 export const Navigation: React.FC = () => {
@@ -28,17 +29,28 @@ export const Navigation: React.FC = () => {
           </div>
 
           <div className="hidden justify-center items-center md:flex md:flex-1 lg:w-0">
-            <Link to="/">
-              <span className="text-base font-medium text-gray-500 whitespace-nowrap hover:text-gray-900">
+            <NavLink
+              to="/"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                    ? "text-transparent bg-clip-text bg-linear-to-r from-indigo-500 to-teal-400 hover:text-teal-700"
+                    : ""}
+            >
+              <span className="text-base font-medium whitespace-nowrap ">
                 Home
               </span>
-            </Link>
+            </NavLink>
           </div>
 
           <div className="hidden justify-end items-center md:flex md:flex-1 lg:w-0">
-            <span className="text-base font-medium text-gray-500 whitespace-nowrap hover:text-gray-900">
-              Amadeus Mader
-            </span>
+            <a
+              href="mailto:website@mozart409.com"
+              className="text-base font-medium text-gray-500 whitespace-nowrap hover:text-gray-900"
+            >
+              <span>Email me</span>
+            </a>
           </div>
         </div>
       </header>
